@@ -4,7 +4,7 @@
 
 
 TEST(MoveableTest, Construction) {
-	moveable * s = new moveable(1, 0, 1.5, 2.5, 0.1);
+	moveable * s = new moveable(0, 1, 1.5, 2.5, 0.1);
 	
 	EXPECT_EQ(s->N, 1);
 	EXPECT_EQ(s->N_prev, 0);
@@ -14,7 +14,7 @@ TEST(MoveableTest, Construction) {
 }
 
 TEST(MoveableTest, Construction2) {
-	moveable* s = new moveable(2, 1, 1, 2.5, 0.1);
+	moveable* s = new moveable(1, 2, 1, 2.5, 0.1);
 
 	EXPECT_EQ(s->N, 2);
 	EXPECT_EQ(s->N_prev, 1);

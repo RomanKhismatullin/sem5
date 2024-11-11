@@ -19,9 +19,6 @@
     <Filter Include="Исходные файлы\class">
       <UniqueIdentifier>{23705627-cb31-4675-95c8-5fa9d56beb61}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходные файлы\test">
-      <UniqueIdentifier>{51832bf4-801c-411f-b1f4-b30cad2fd246}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="sem5.cpp">

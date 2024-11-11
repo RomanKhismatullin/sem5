@@ -17,7 +17,7 @@ public:
 	/// <param name="y">Координата Y в с/к предыдущего звена</param>
 	/// <param name="Alpha">Угол относительно оси Ox предыдущего звена</param>
 
-	moveable(int N, int N_prev, double x, double y, double Alpha);
+	moveable(int N_prev, int N, double x, double y, double Alpha);
 	/// <summary>
 	/// Координата X в с/к предыдущего звена
 	/// </summary>
