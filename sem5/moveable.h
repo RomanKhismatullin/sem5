@@ -4,6 +4,10 @@
 /// </summary>
 class moveable {
 public:
+
+	
+
+
 	/// <summary>
 	/// Конструктор
 	/// </summary>
