@@ -4,8 +4,13 @@
 /// </summary>
 class moveable {
 public:
+	/// <summary>
+	/// Конструктор
+	/// </summary>
+	/// <param name="N">Номер этого звена</param>
+	/// <param name="N_prev">Номер предыдущего звена</param>
+	moveable(int N_prev, int N);
 
-	
 
 
 	/// <summary>
@@ -16,7 +21,6 @@ public:
 	/// <param name="x">Координата X в с/к предыдущего звена</param>
 	/// <param name="y">Координата Y в с/к предыдущего звена</param>
 	/// <param name="Alpha">Угол относительно оси Ox предыдущего звена</param>
-
 	moveable(int N_prev, int N, double x, double y, double Alpha);
 	/// <summary>
 	/// Координата X в с/к предыдущего звена
@@ -33,11 +37,19 @@ public:
 	/// <summary>
 	/// Номер этого звена
 	/// </summary>
-	int N;
+	int N();
+	/// <summary>
+	/// Номер предыдущего звена	
+	/// </summary>
+	int N_prev();
+	//virtual void 
+protected:
+	/// <summary>
+	/// Номер этого звена
+	/// </summary>
+	int n;
 	/// <summary>
 	/// Номер предыдущего звена
 	/// </summary>
-	int N_prev;
-
-	//virtual void 
+	int n_prev;
 };

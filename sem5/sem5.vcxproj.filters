@@ -33,9 +33,15 @@
     <ClCompile Include="printable.cpp">
       <Filter>Исходные файлы\class</Filter>
     </ClCompile>
+    <ClCompile Include="Element.cpp">
+      <Filter>Исходные файлы\class</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="moveable.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Element.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

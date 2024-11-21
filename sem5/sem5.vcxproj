@@ -127,12 +127,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Element.cpp" />
     <ClCompile Include="moveable.cpp" />
     <ClCompile Include="printable.cpp" />
     <ClCompile Include="sem5.cpp" />
     <ClCompile Include="task01.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Element.h" />
     <ClInclude Include="moveable.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
