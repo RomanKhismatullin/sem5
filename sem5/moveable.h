@@ -9,15 +9,6 @@ public:
 	/// </summary>
 	/// <param name="N">Номер этого звена</param>
 	/// <param name="N_prev">Номер предыдущего звена</param>
-	moveable(int N_prev, int N);
-
-
-
-	/// <summary>
-	/// Конструктор
-	/// </summary>
-	/// <param name="N">Номер этого звена</param>
-	/// <param name="N_prev">Номер предыдущего звена</param>
 	/// <param name="x">Координата X в с/к предыдущего звена</param>
 	/// <param name="y">Координата Y в с/к предыдущего звена</param>
 	/// <param name="Alpha">Угол относительно оси Ox предыдущего звена</param>
@@ -25,31 +16,35 @@ public:
 	/// <summary>
 	/// Координата X в с/к предыдущего звена
 	/// </summary>
-	double x;
+	double X() const;
 	/// <summary>
 	/// Координата Y в с/к предыдущего звена
 	/// </summary>
-	double y;
+	double Y() const;
 	/// <summary>
 	/// Угол относительно оси Ox предыдущего звена
 	/// </summary>
-	double Alpha;
+	double Alpha() const;
 	/// <summary>
 	/// Номер этого звена
 	/// </summary>
-	int N();
+	int N() const;
 	/// <summary>
 	/// Номер предыдущего звена	
 	/// </summary>
-	int N_prev();
+	int N_prev() const;
 	//virtual void 
 protected:
 	/// <summary>
 	/// Номер этого звена
 	/// </summary>
-	int n;
+	int _N;
 	/// <summary>
 	/// Номер предыдущего звена
 	/// </summary>
-	int n_prev;
+	int _N_prev;
+
+	double _X;
+	double _Y;
+	double _Alpha;
 };
