@@ -1,18 +1,18 @@
 #pragma once
 #include "Positionable.h"
 
-class Element : Positionable {
+class Element : public Positionable {
 public:
 	/// <summary>
-	/// Конструктор
+	/// Создает новыйь элемент
 	/// </summary>
-	/// <param name="N">Номер этого звена</param>
-	/// <param name="N_prev">Номер предыдущего звена</param>
-	/// <param name="x">Координата X в с/к предыдущего звена</param>
-	/// <param name="y">Координата Y в с/к предыдущего звена</param>
-	/// <param name="Alpha">Угол относительно оси Ox предыдущего звена</param>
-	Element(int N_prev, int N, double x = 0, double y = 0, double Alpha = 0);
-
-	
+	/// <param name="NPrev">номер предыдущего звена</param>
+	/// <param name="N">номер звена</param>
+	/// <param name="x">x</param>
+	/// <param name="y">y</param>
+	/// <param name="Alpha">угол направления</param>
+	Element(int NPrev, int N, double x = 1, double y = 0, double Alpha = 0);
+	void SetAlpha(double A);
+	void MoveAlpha(double A);
 
 };

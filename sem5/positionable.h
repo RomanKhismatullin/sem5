@@ -8,11 +8,11 @@ public:
 	/// Конструктор
 	/// </summary>
 	/// <param name="N">Номер этого звена</param>
-	/// <param name="N_prev">Номер предыдущего звена</param>
+	/// <param name="NPrev">Номер предыдущего звена</param>
 	/// <param name="x">Координата X в с/к предыдущего звена</param>
 	/// <param name="y">Координата Y в с/к предыдущего звена</param>
 	/// <param name="Alpha">Угол относительно оси Ox предыдущего звена</param>
-	Positionable(int N_prev, int N, double x = 0, double y = 0, double Alpha = 0);
+	Positionable(int NPrev, int N, double x = 0, double y = 0, double Alpha = 0);
 	/// <summary>
 	/// Координата X в с/к предыдущего звена
 	/// </summary>
@@ -32,11 +32,11 @@ public:
 	/// <summary>
 	/// Номер предыдущего звена	
 	/// </summary>
-	int N_prev() const;
-	//virtual void 
+	int NPrev() const;
+
 protected:
 	int _N;
-	int _N_prev;
+	int _NPrev;
 	double _X;
 	double _Y;
 	double _Alpha;

@@ -99,6 +99,7 @@
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Camera_test.cpp" />
     <ClCompile Include="Element_test.cpp" />
     <ClCompile Include="Grip_test.cpp" />
     <ClCompile Include="Positionable_test.cpp" />

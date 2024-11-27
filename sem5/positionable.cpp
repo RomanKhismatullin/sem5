@@ -6,15 +6,15 @@ Positionable::Positionable(int N_prev, int N, double x, double y, double Alpha) 
 	this->_Y = y;
 	this->_Alpha = Alpha;
 	this->_N = N;
-	this->_N_prev = N_prev;
+	this->_NPrev = N_prev;
 }
 
 int Positionable::N() const {
 	return this->_N;
 }
 
-int Positionable::N_prev() const {
-	return this->_N_prev;
+int Positionable::NPrev() const {
+	return this->_NPrev;
 }
 
 double Positionable::X() const {

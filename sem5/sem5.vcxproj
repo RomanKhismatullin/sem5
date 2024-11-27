@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Element.cpp" />
     <ClCompile Include="Grip.cpp" />
     <ClCompile Include="Positionable.cpp" />
@@ -134,6 +135,7 @@
     <ClCompile Include="task01.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="Element.h" />
     <ClInclude Include="Grip.h" />
     <ClInclude Include="Positionable.h" />

@@ -1,10 +1,10 @@
 #include "Grip.h"
 
-Grip::Grip(int N_prev, int N, double x, double y, double Alpha, double OpeningAlpha) : Positionable(N_prev, N, x, y, Alpha) {
+Grip::Grip(int NPrev, int N, double x, double y, double Alpha, double OpeningAlpha) : Positionable(NPrev, N, x, y, Alpha) {
 	_OpeningAlpha = OpeningAlpha;
 };
 
-double Grip::OpeningAlpha() const {
+double Grip::AlphaOpening() const {
 	return _OpeningAlpha;
 }
 

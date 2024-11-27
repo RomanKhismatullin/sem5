@@ -5,7 +5,7 @@
 TEST(MoveableTest, DefaultConstructor) {
 	Positionable* s = new Positionable(0, 1);
 	EXPECT_EQ(s->N(), 1);
-	EXPECT_EQ(s->N_prev(), 0);
+	EXPECT_EQ(s->NPrev(), 0);
 	EXPECT_EQ(s->X(), 0);
 	EXPECT_EQ(s->Y(), 0);
 	EXPECT_EQ(s->Alpha(), 0);
@@ -16,7 +16,7 @@ TEST(PositionableTest, Construction) {
 	Positionable* s = new Positionable(0, 1, 1.5, 2.5, 0.1);
 
 	EXPECT_EQ(s->N(), 1);
-	EXPECT_EQ(s->N_prev(), 0);
+	EXPECT_EQ(s->NPrev(), 0);
 	EXPECT_EQ(s->Alpha(), 0.1);
 	EXPECT_EQ(s->X(), 1.5);
 	EXPECT_EQ(s->Y(), 2.5);
@@ -26,7 +26,7 @@ TEST(PositionableTest, Construction2) {
 	Positionable* s = new Positionable(1, 2, 1, 2.5, 0.1);
 
 	EXPECT_EQ(s->N(), 2);
-	EXPECT_EQ(s->N_prev(), 1);
+	EXPECT_EQ(s->NPrev(), 1);
 	EXPECT_EQ(s->Alpha(), 0.1);
 	EXPECT_EQ(s->X(), 1);
 	EXPECT_EQ(s->Y(), 2.5);
