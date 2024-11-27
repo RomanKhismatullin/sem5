@@ -1,9 +1,9 @@
 #include "pch.h"
-#include "../sem5/moveable.h"
-#include "../sem5/moveable.cpp"
+#include "../sem5/Positionable.h"
+#include "../sem5/Positionable.cpp"
 
 TEST(MoveableTest, DefaultConstructor) {
-	moveable* s = new moveable(0, 1);
+	Positionable* s = new Positionable(0, 1);
 	EXPECT_EQ(s->N(), 1);
 	EXPECT_EQ(s->N_prev(), 0);
 	EXPECT_EQ(s->X(), 0);
@@ -12,8 +12,8 @@ TEST(MoveableTest, DefaultConstructor) {
 }
 
 
-TEST(MoveableTest, Construction) {
-	moveable* s = new moveable(0, 1, 1.5, 2.5, 0.1);
+TEST(PositionableTest, Construction) {
+	Positionable* s = new Positionable(0, 1, 1.5, 2.5, 0.1);
 
 	EXPECT_EQ(s->N(), 1);
 	EXPECT_EQ(s->N_prev(), 0);
@@ -23,7 +23,7 @@ TEST(MoveableTest, Construction) {
 }
 
 TEST(MoveableTest, Construction2) {
-	moveable* s = new moveable(1, 2, 1, 2.5, 0.1);
+	Positionable* s = new Positionable(1, 2, 1, 2.5, 0.1);
 
 	EXPECT_EQ(s->N(), 2);
 	EXPECT_EQ(s->N_prev(), 1);

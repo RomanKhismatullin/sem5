@@ -27,7 +27,7 @@
     <ClCompile Include="task01.cpp">
       <Filter>Исходные файлы\old</Filter>
     </ClCompile>
-    <ClCompile Include="moveable.cpp">
+    <ClCompile Include="Positionable.cpp">
       <Filter>Исходные файлы\class</Filter>
     </ClCompile>
     <ClCompile Include="printable.cpp">
@@ -38,7 +38,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="moveable.h">
+    <ClInclude Include="Positionable.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Element.h">
