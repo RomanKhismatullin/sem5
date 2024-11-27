@@ -13,6 +13,13 @@ TEST(GripTest, DefaultConstructor) {
 }
 
 
+TEST(GripTest, testSetOpeningAlpha) {
+	Grip* s = new Grip(0, 1);
+	s->SetOpeningAlpha(3);
+	EXPECT_EQ(s->OpeningAlpha(), 3);
+}
+
+
 TEST(GripTest, Constructor) {
 	Grip* s = new Grip(0, 1, 2, 3, 4, 5);
 

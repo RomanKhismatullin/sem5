@@ -22,7 +22,7 @@ TEST(PositionableTest, Construction) {
 	EXPECT_EQ(s->Y(), 2.5);
 }
 
-TEST(MoveableTest, Construction2) {
+TEST(PositionableTest, Construction2) {
 	Positionable* s = new Positionable(1, 2, 1, 2.5, 0.1);
 
 	EXPECT_EQ(s->N(), 2);
