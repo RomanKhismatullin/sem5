@@ -1,7 +1,6 @@
 #pragma once
 #include "Positionable.h"
-
-class Element : Positionable {
+class Grip final : public Positionable {
 public:
 	/// <summary>
 	/// Конструктор
@@ -11,8 +10,11 @@ public:
 	/// <param name="x">Координата X в с/к предыдущего звена</param>
 	/// <param name="y">Координата Y в с/к предыдущего звена</param>
 	/// <param name="Alpha">Угол относительно оси Ox предыдущего звена</param>
-	Element(int N_prev, int N, double x = 0, double y = 0, double Alpha = 0);
+	Grip(int N_prev, int N, double x = 0, double y = 0, double Alpha = 0, double OpeningAlpha = 0);
 
-	
+	void SetOpeningAlpha(double A);
 
+	double OpeningAlpha() const;
+private:
+	double _OpeningAlpha;
 };

@@ -1,7 +1,7 @@
 #include "Positionable.h"
 
 
-Positionable::Positionable(int N_prev, int N, double x = 0, double y = 0, double Alpha = 0) {
+Positionable::Positionable(int N_prev, int N, double x, double y, double Alpha) {
 	this->_X = x;
 	this->_Y = y;
 	this->_Alpha = Alpha;

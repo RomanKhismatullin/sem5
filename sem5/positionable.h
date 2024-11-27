@@ -12,7 +12,7 @@ public:
 	/// <param name="x">Координата X в с/к предыдущего звена</param>
 	/// <param name="y">Координата Y в с/к предыдущего звена</param>
 	/// <param name="Alpha">Угол относительно оси Ox предыдущего звена</param>
-	Positionable(int N_prev, int N, double x, double y, double Alpha);
+	Positionable(int N_prev, int N, double x = 0, double y = 0, double Alpha = 0);
 	/// <summary>
 	/// Координата X в с/к предыдущего звена
 	/// </summary>
