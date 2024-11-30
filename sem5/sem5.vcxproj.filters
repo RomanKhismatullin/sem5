@@ -16,8 +16,32 @@
     <Filter Include="Исходные файлы\old">
       <UniqueIdentifier>{db835803-f375-4027-b0c4-12c85daa4304}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходные файлы\class">
-      <UniqueIdentifier>{23705627-cb31-4675-95c8-5fa9d56beb61}</UniqueIdentifier>
+    <Filter Include="Action">
+      <UniqueIdentifier>{f13705cb-d1bc-40ac-bfce-afcde144d450}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Action\h">
+      <UniqueIdentifier>{33a2e9d3-fb1e-4cff-9ac2-88cbf7195ec2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Action\cpp">
+      <UniqueIdentifier>{7f284d89-6893-4f7d-bb3a-1198b575328f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manipulator">
+      <UniqueIdentifier>{22d2974e-1a79-4115-a978-13f21fbabafd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manipulator\h">
+      <UniqueIdentifier>{c6278b46-e05d-4f25-94cc-390b507a1f7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manipulator\cpp">
+      <UniqueIdentifier>{4f2140c2-2d7c-4d42-be1f-ef529800a928}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Positionable">
+      <UniqueIdentifier>{65d2a947-fd0f-466f-9601-48c02a2f85eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Positionable\h">
+      <UniqueIdentifier>{27b7b5c6-fd5d-49e4-b21a-1706004e01ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Positionable\cpp">
+      <UniqueIdentifier>{28425713-af5b-4c7e-aa16-f295c53cad5d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -27,31 +51,73 @@
     <ClCompile Include="task01.cpp">
       <Filter>Исходные файлы\old</Filter>
     </ClCompile>
-    <ClCompile Include="Positionable.cpp">
-      <Filter>Исходные файлы\class</Filter>
+    <ClCompile Include="ActionGrip.cpp">
+      <Filter>Action\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="ActionMove.cpp">
+      <Filter>Action\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="ActionSet.cpp">
+      <Filter>Action\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Manipulator.cpp">
+      <Filter>Manipulator\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="MockManipulator.cpp">
+      <Filter>Manipulator\cpp</Filter>
     </ClCompile>
     <ClCompile Include="Element.cpp">
-      <Filter>Исходные файлы\class</Filter>
+      <Filter>Positionable\cpp</Filter>
     </ClCompile>
     <ClCompile Include="Grip.cpp">
-      <Filter>Исходные файлы\class</Filter>
+      <Filter>Positionable\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Positionable.cpp">
+      <Filter>Positionable\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Sequence.cpp">
+      <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="Camera.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Positionable\cpp</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Positionable.h">
+    <ClInclude Include="Sequence.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Element.h">
-      <Filter>Файлы заголовков</Filter>
+    <ClInclude Include="ActionGrip.h">
+      <Filter>Action\h</Filter>
     </ClInclude>
-    <ClInclude Include="Grip.h">
-      <Filter>Файлы заголовков</Filter>
+    <ClInclude Include="ActionSet.h">
+      <Filter>Action\h</Filter>
+    </ClInclude>
+    <ClInclude Include="ActionMove.h">
+      <Filter>Action\h</Filter>
+    </ClInclude>
+    <ClInclude Include="Manipulator.h">
+      <Filter>Manipulator\h</Filter>
+    </ClInclude>
+    <ClInclude Include="MockManipulator.h">
+      <Filter>Manipulator\h</Filter>
+    </ClInclude>
+    <ClInclude Include="IAction.h">
+      <Filter>Action</Filter>
+    </ClInclude>
+    <ClInclude Include="IManipulator.h">
+      <Filter>Manipulator</Filter>
     </ClInclude>
     <ClInclude Include="Camera.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Positionable\h</Filter>
+    </ClInclude>
+    <ClInclude Include="Element.h">
+      <Filter>Positionable\h</Filter>
+    </ClInclude>
+    <ClInclude Include="Grip.h">
+      <Filter>Positionable\h</Filter>
+    </ClInclude>
+    <ClInclude Include="Positionable.h">
+      <Filter>Positionable\h</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

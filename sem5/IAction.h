@@ -1,0 +1,15 @@
+#pragma once
+#include "IManipulator.h"
+
+/// <summary>
+/// Класс-интерфейс действие робота
+/// </summary>
+class IAction {
+public:
+	/// <summary>
+	/// Выплнить действие
+	/// </summary>
+	/// <param name="mn">манипулятор, который необходимо переместить</param>
+	/// <returns>0 - успех, 1 - ошибка</returns>
+	virtual int DoWork(IManipulator* mn) = 0;
+};

@@ -14,5 +14,4 @@ public:
 	Element(int NPrev, int N, double x = 1, double y = 0, double Alpha = 0);
 	void SetAlpha(double A);
 	void MoveAlpha(double A);
-
 };

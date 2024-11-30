@@ -127,18 +127,32 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ActionGrip.cpp" />
+    <ClCompile Include="ActionMove.cpp" />
+    <ClCompile Include="ActionSet.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Element.cpp" />
     <ClCompile Include="Grip.cpp" />
+    <ClCompile Include="Manipulator.cpp" />
+    <ClCompile Include="MockManipulator.cpp" />
     <ClCompile Include="Positionable.cpp" />
     <ClCompile Include="sem5.cpp" />
+    <ClCompile Include="Sequence.cpp" />
     <ClCompile Include="task01.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ActionGrip.h" />
+    <ClInclude Include="ActionSet.h" />
+    <ClInclude Include="ActionMove.h" />
+    <ClInclude Include="IAction.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Element.h" />
     <ClInclude Include="Grip.h" />
+    <ClInclude Include="IManipulator.h" />
+    <ClInclude Include="Manipulator.h" />
+    <ClInclude Include="MockManipulator.h" />
     <ClInclude Include="Positionable.h" />
+    <ClInclude Include="Sequence.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

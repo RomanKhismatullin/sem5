@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="positionable_test.cpp" />
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="ActionSet_test.cpp">
+      <Filter>MockTests</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera_test.cpp" />
+    <ClCompile Include="Element_test.cpp" />
+    <ClCompile Include="Grip_test.cpp" />
+    <ClCompile Include="ActionMove_test.cpp">
+      <Filter>MockTests</Filter>
+    </ClCompile>
+    <ClCompile Include="ActionGrip_test.cpp">
+      <Filter>MockTests</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="MockTests">
+      <UniqueIdentifier>{0ffda60b-5c4c-4563-a513-781e854e11e0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

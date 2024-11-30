@@ -28,7 +28,7 @@ public:
 	/// <summary>
 	/// Номер этого звена
 	/// </summary>
-	int N() const;
+	virtual int N() const final;
 	/// <summary>
 	/// Номер предыдущего звена	
 	/// </summary>
