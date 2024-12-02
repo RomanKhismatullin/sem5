@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ActionCamera.cpp" />
     <ClCompile Include="ActionGrip.cpp" />
     <ClCompile Include="ActionMove.cpp" />
     <ClCompile Include="ActionSet.cpp" />
@@ -141,6 +142,7 @@
     <ClCompile Include="task01.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ActionCamera.h" />
     <ClInclude Include="ActionGrip.h" />
     <ClInclude Include="ActionSet.h" />
     <ClInclude Include="ActionMove.h" />

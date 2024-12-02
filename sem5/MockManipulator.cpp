@@ -18,10 +18,7 @@ Positionable* MockManipulator::GetElement(int N) {
 
 int MockManipulator::MoveElem(int N, double fi) {
 	if (N == 0) {
-		auto v = dynamic_cast<Element*> (this->Pos);
-		if (v == nullptr)
-			return 1;
-		v->MoveAlpha(fi);
+		Pos->MoveAlpha(fi);
 		return 0;
 	}
 	else
@@ -31,10 +28,7 @@ int MockManipulator::MoveElem(int N, double fi) {
 int MockManipulator::SetElem(int N, double fi)
 {
 	if (N == 0) {
-		auto v = dynamic_cast<Element*> (this->Pos);
-		if (v == nullptr)
-			return 1;
-		v->SetAlpha(fi);
+		Pos->SetAlpha(fi);
 		return 0;
 	}
 	else

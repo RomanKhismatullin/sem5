@@ -4,9 +4,8 @@
 class ActionMove final : public IAction {
 public:
 	ActionMove(int _n, double fi);
-
+	int N;
 	int DoWork(IManipulator* mn) override;
 
-	int N;
 	double Fi;
 };

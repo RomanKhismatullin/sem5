@@ -30,4 +30,17 @@ double Positionable::Alpha() const {
 }
 
 
+int Positionable::SetAlpha(double A) {
+		this->_Alpha = A;
+	return 0;
+}
+
+
+int Positionable::MoveAlpha(double A) {
+		this->_Alpha += A;
+	return 0;
+}
+
+
+
 

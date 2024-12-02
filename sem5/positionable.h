@@ -34,6 +34,11 @@ public:
 	/// </summary>
 	int NPrev() const;
 
+	/// <returns>0 for success, 1 failure</returns>
+	virtual int SetAlpha(double A);
+	/// <returns>0 for success, 1 failure</returns>
+	virtual int MoveAlpha(double A);
+
 protected:
 	int _N;
 	int _NPrev;

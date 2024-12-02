@@ -12,7 +12,6 @@ public:
 	ActionGrip(int _n, double _alpha, double _openingAlpha);
 
 	int DoWork(IManipulator* mn) override;
-
 	int N;
 	double Alpha;
 	double OpeningAlpha;

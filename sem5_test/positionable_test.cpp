@@ -31,3 +31,6 @@ TEST(PositionableTest, Construction2) {
 	EXPECT_EQ(s->X(), 1);
 	EXPECT_EQ(s->Y(), 2.5);
 }
+
+
+//ћетоды движени€ угла протестированы в наследнике Element

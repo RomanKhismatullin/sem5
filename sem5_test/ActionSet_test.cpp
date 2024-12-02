@@ -95,3 +95,27 @@ TEST(ActionSetTest, WrongType) {
 	EXPECT_EQ(mm->Pos->Alpha(), 0);
 	EXPECT_EQ(rs, 1);
 }
+
+#include "../sem5/Grip.h"
+
+
+TEST(ActionSetTest, DerivedType) { //Устанавливать можно только элементы.
+	ActionSet* act = new ActionSet(0, 3.14);
+	EXPECT_EQ(act->Fi, 3.14);
+	EXPECT_EQ(act->N, 0);
+
+	IAction* act2 = act;
+
+	Grip* el = new Grip(0, 1); //Не звено!
+	//el->MoveAlpha(1.1);
+
+	Positionable* pos = el;
+	EXPECT_EQ(el->Alpha(), 0);
+
+	auto mm = new MockManipulator();
+	mm->AddElement(pos);
+
+	int rs = act->DoWork(mm);
+	EXPECT_EQ(mm->Pos->Alpha(), 0);
+	EXPECT_EQ(rs, 1);
+}
