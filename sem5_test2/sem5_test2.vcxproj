@@ -19,13 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{b0beb562-3fcb-4e38-b290-4d7cfda41587}</ProjectGuid>
+    <ProjectGuid>{9dc29ae4-6fd9-4f8d-8e20-3c5c9d1c74be}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
     <ConfigurationType>Application</ConfigurationType>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
-    <ProjectName>sem5_test_2</ProjectName>
+    <ProjectName>sem5_test</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -100,24 +100,20 @@
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ActionGrip_test.cpp" />
-    <ClCompile Include="ActionMove_test.cpp" />
-    <ClCompile Include="ActionSet_test.cpp" />
-    <ClCompile Include="Camera_test.cpp" />
-    <ClCompile Include="Element_test.cpp" />
-    <ClCompile Include="Grip_test.cpp" />
-    <ClCompile Include="Positionable_test.cpp" />
+    <ClCompile Include="..\sem5_test\ActionGrip_test.cpp" />
+    <ClCompile Include="..\sem5_test\ActionMove_test.cpp" />
+    <ClCompile Include="..\sem5_test\ActionSet_test.cpp" />
+    <ClCompile Include="..\sem5_test\Camera_test.cpp" />
+    <ClCompile Include="..\sem5_test\Element_test.cpp" />
+    <ClCompile Include="..\sem5_test\Grip_test.cpp" />
+    <ClCompile Include="..\sem5_test\positionable_test.cpp" />
+    <ClCompile Include="test.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\sem5\sem5.vcxproj">
-      <Project>{2332acd2-c116-4eda-bf9f-2d45b90002bd}</Project>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
