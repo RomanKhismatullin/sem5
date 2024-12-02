@@ -82,7 +82,7 @@ TEST(ActionSetTest, WrongType) {
 
 	IAction* act2 = act;
 
-	Camera* el = new Camera(0, 1);
+	Camera* el = new Camera(0, 1); //Не звено!
 	//el->MoveAlpha(1.1);
 
 	Positionable* pos = el;
@@ -90,7 +90,8 @@ TEST(ActionSetTest, WrongType) {
 
 	auto mm = new MockManipulator();
 	mm->AddElement(pos);
+
 	int rs = act->DoWork(mm);
-	EXPECT_EQ(mm->Pos->Alpha(), 3.14);
-	EXPECT_EQ(rs, 0);
+	EXPECT_EQ(mm->Pos->Alpha(), 0);
+	EXPECT_EQ(rs, 1);
 }
