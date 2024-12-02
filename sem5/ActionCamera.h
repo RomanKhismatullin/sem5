@@ -1,7 +1,7 @@
 #pragma once
 #include "IAction.h"
 
-class ActionCamera : public IAction {
+class ActionCamera final : public IAction {
 public:
 	ActionCamera(int n, double alpha, double alphaView);
 	int DoWork(IManipulator* mn) override;
