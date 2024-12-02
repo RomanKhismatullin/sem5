@@ -13,6 +13,17 @@ public:
 	/// <param name="y">Координата Y в с/к предыдущего звена</param>
 	/// <param name="Alpha">Угол относительно оси Ox предыдущего звена</param>
 	Positionable(int NPrev, int N, double x = 0, double y = 0, double Alpha = 0);
+	
+	
+	/// <returns>0 for success, 1 failure</returns>
+	virtual int SetAlpha(double A);
+	/// <returns>0 for success, 1 failure</returns>
+	virtual int MoveAlpha(double A);
+	
+	
+	
+	
+	
 	/// <summary>
 	/// Координата X в с/к предыдущего звена
 	/// </summary>
@@ -34,10 +45,7 @@ public:
 	/// </summary>
 	int NPrev() const;
 
-	/// <returns>0 for success, 1 failure</returns>
-	virtual int SetAlpha(double A);
-	/// <returns>0 for success, 1 failure</returns>
-	virtual int MoveAlpha(double A);
+
 
 protected:
 	int _N;
