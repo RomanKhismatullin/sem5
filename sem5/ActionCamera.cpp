@@ -1,7 +1,7 @@
 #include "ActionCamera.h"
 #include "Camera.h"
 
-ActionCamera::ActionCamera(int n, double alphaView, double alpha) {
+ActionCamera::ActionCamera(int n, double alpha, double alphaView) {
 	this->N = n;
 	this->Alpha = alpha;
 	this->AlphaView = alphaView;
@@ -12,7 +12,7 @@ int ActionCamera::DoWork(IManipulator* mn) {
 	auto ss = dynamic_cast<Camera*>(s);
 	if (ss == nullptr)
 		return 1;
-	ss->SetAlpha(Alpha);
+	s->SetAlpha(Alpha);
 	ss->SetAlphaView(AlphaView);
 	return 0;
 
