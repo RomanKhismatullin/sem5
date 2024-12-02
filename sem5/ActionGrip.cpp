@@ -9,5 +9,6 @@ ActionGrip::ActionGrip(int _n, double _alpha, double _openingAlpha) {
 int ActionGrip::DoWork(IManipulator* mn) {
 	auto s = mn->GetElement(N);
 	Grip* ss = dynamic_cast<Grip*>(s);
+	ss->SetOpeningAlpha(OpeningAlpha);
 	return 1;
 };

@@ -2,6 +2,12 @@
 #include "../sem5/Grip.h"
 #include "../sem5/Grip.cpp"
 
+
+TEST(GripTest, testSetAlpha) {
+	Grip* s = new Grip(0, 1);
+	s->SetAlpha(3);
+	EXPECT_EQ(s->Alpha(), 3);
+}
 TEST(GripTest, DefaultConstructor) {
 	Grip* s = new Grip(0, 1);
 	EXPECT_EQ(s->NPrev(), 0);

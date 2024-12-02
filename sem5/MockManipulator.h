@@ -5,7 +5,7 @@ class MockManipulator final : public IManipulator {
 public:
 	Positionable* Pos = nullptr;
 	//добавляет элемент 1 всегда
-	int AddElement(Positionable* pos) override ; //ввод упорядочен по номеру
+	int AddPositionable(Positionable* pos) override ; //ввод упорядочен по номеру
 
 	//Вернет элемент добавленный Add-ом на 0, иначе nullptr
 	Positionable* GetElement(int N) override; //получить по номеру

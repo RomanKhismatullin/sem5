@@ -1,6 +1,6 @@
 #include "Grip.h"
 
-Grip::Grip(int NPrev, int N, double x, double y, double Alpha, double OpeningAlpha) : Positionable(NPrev, N, x, y, Alpha) {
+Grip::Grip(int NPrev, int N, double x, double y, double Alpha, double OpeningAlpha) : Element(NPrev, N, x, y, Alpha) {
 	_OpeningAlpha = OpeningAlpha;
 };
 

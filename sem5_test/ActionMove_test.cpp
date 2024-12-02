@@ -22,12 +22,11 @@ TEST(ActionMoveTest, MoveTest2) {
 	EXPECT_EQ(el->Alpha(), 1.1);
 
 	auto mm = new MockManipulator();
-	mm->AddElement(pos);
+	mm->AddPositionable(pos);
 	int rs = act->DoWork(mm);
 	EXPECT_EQ(mm->Pos->Alpha(), 1.1);
 	EXPECT_EQ(rs, 1);
 }
-
 TEST(ActionMoveTest, MoveTest1) {
 	ActionMove* act = new ActionMove(0, 3.14);
 	EXPECT_EQ(act->Fi, 3.14);
@@ -42,7 +41,7 @@ TEST(ActionMoveTest, MoveTest1) {
 	EXPECT_EQ(el->Alpha(), 1.1);
 
 	auto mm = new MockManipulator();
-	mm->AddElement(pos);
+	mm->AddPositionable(pos);
 	int rs = act->DoWork(mm);
 	EXPECT_EQ(mm->Pos->Alpha(), 3.14 + 1.1);
 	EXPECT_EQ(rs, 0);
@@ -50,3 +49,4 @@ TEST(ActionMoveTest, MoveTest1) {
 	EXPECT_EQ(mm->Pos->Alpha(), 2 * 3.14 + 1.1);
 	EXPECT_EQ(rs, 0);
 }
+

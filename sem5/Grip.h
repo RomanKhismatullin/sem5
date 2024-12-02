@@ -1,6 +1,6 @@
 #pragma once
-#include "Positionable.h"
-class Grip final : public Positionable {
+#include "Element.h"
+class Grip final : public Element {
 public:
 	Grip(int NPrev, int N, double x = 0, double y = 0, double Alpha = 0, double OpeningAlpha = 0);
 

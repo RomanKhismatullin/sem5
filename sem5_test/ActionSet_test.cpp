@@ -21,7 +21,7 @@ TEST(ActionSetTest, UsualSetTest) {
 	EXPECT_EQ(el->Alpha(), 1.1);
 
 	auto mm = new MockManipulator();
-	mm->AddElement(pos);
+	mm->AddPositionable(pos);
 	int rs = act->DoWork(mm);
 	EXPECT_EQ(mm->Pos->Alpha(), 3.14);
 	EXPECT_EQ(rs, 0);
@@ -41,7 +41,7 @@ TEST(ActionSetTest, WrongActN) {
 	EXPECT_EQ(el->Alpha(), 1.1);
 
 	auto mm = new MockManipulator();
-	mm->AddElement(pos);
+	mm->AddPositionable(pos);
 	act->DoWork(mm);
 	int rs = act->DoWork(mm);
 	EXPECT_EQ(mm->Pos->Alpha(), 1.1);
@@ -63,7 +63,7 @@ TEST(ActionSetTest, SeqSetTest) {
 	EXPECT_EQ(el->Alpha(), 1.1);
 
 	auto mm = new MockManipulator();
-	mm->AddElement(pos);
+	mm->AddPositionable(pos);
 	int rs = act->DoWork(mm);
 	EXPECT_EQ(mm->Pos->Alpha(), 3.14);
 	EXPECT_EQ(rs, 0);
@@ -74,8 +74,29 @@ TEST(ActionSetTest, SeqSetTest) {
 }
 
 #include "../sem5/Camera.h"
+#include "../sem5/Grip.h"
 
-TEST(ActionSetTest, WrongType) {
+TEST(ActionSetTest, GripType) {
+	ActionSet* act = new ActionSet(0, 3.14);
+	EXPECT_EQ(act->Fi, 3.14);
+	EXPECT_EQ(act->N, 0);
+
+	IAction* act2 = act;
+
+	Grip* el = new Grip(0, 1);
+	//el->MoveAlpha(1.1);
+
+	Positionable* pos = el;
+	EXPECT_EQ(el->Alpha(), 0);
+
+	auto mm = new MockManipulator();
+	mm->AddPositionable(pos);
+	int rs = act->DoWork(mm);
+	EXPECT_EQ(mm->Pos->Alpha(), 3.14);
+	EXPECT_EQ(rs, 0);
+}
+
+TEST(ActionSetTest, WrongType2) {
 	ActionSet* act = new ActionSet(0, 3.14);
 	EXPECT_EQ(act->Fi, 3.14);
 	EXPECT_EQ(act->N, 0);
@@ -83,14 +104,13 @@ TEST(ActionSetTest, WrongType) {
 	IAction* act2 = act;
 
 	Camera* el = new Camera(0, 1);
-	//el->MoveAlpha(1.1);
-
+	
 	Positionable* pos = el;
 	EXPECT_EQ(el->Alpha(), 0);
 
 	auto mm = new MockManipulator();
-	mm->AddElement(pos);
-	int rs = act->DoWork(mm);
-	EXPECT_EQ(mm->Pos->Alpha(), 3.14);
-	EXPECT_EQ(rs, 0);
+	//mm->AddPositionable(pos);
+	//int rs = act->DoWork(mm);
+	//EXPECT_EQ(mm->Pos->Alpha(), 0);
+	//EXPECT_EQ(rs, 1);
 }

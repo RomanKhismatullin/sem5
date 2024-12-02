@@ -12,7 +12,7 @@ public:
 	/// </summary>
 	/// <param name="pos">ссылка на добавляемый элемент, элемент не должен изменяться после добавления</param>
 	/// <returns>0 - успех, 1 - ошибка</returns>
-	virtual int AddElement(Positionable* pos) = 0; //ввод упорядочен по номеру
+	virtual int AddPositionable(Positionable* pos) = 0; //ввод упорядочен по номеру
 	/// <summary>
 	/// Получнеие элемента по номеру
 	/// </summary>

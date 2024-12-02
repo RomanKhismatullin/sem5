@@ -7,11 +7,13 @@ Element::Element(int NPrev, int N, double x, double y, double Alpha) : Positiona
 
 void Element::SetAlpha(double A) {
 	_Alpha = A;
+    //return 0;
 }
 
 
 void Element::MoveAlpha(double A) {
 	_Alpha += A;
+    //return 0;
 }
 
 
