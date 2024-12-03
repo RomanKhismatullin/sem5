@@ -4,7 +4,7 @@
 #include <vector>
 using std::vector;
 //std::vector<int>::iterator
-class Sequence {
+class Sequence final {
 public:
 	Sequence(IManipulator* mn);
 	/// <summary>
@@ -20,13 +20,30 @@ public:
 	/// где произошлв ошибка 
 	/// Освобождение памяти только при успехе</returns>
 	int Next();
+	/// <summary>
+	/// Выполняет все действия
+	/// </summary>
+	/// <returns>-1 - нет действий в списке, 
+	///0 - на успех,
+	///N - на номер действия, на котором произошла ошибка (с 1)</returns>
 	int PlayAll();
+
 	~Sequence();
+	/// <summary>
+	/// Сколько действий записано
+	/// </summary>
+
 	int ActionsLeft() const;
+	/// <summary>
+	/// Сколько действий выполнено
+	/// </summary>
+	int ActionsDone() const;
+
+	//int GetRepresentation();
 
 private:
 	IManipulator* manipulator;
 	vector<IAction*> actions;
-	int total = 0;
+	int actionCount = 0;
 	
 };

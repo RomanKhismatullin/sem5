@@ -8,12 +8,11 @@ Sequence::Sequence(IManipulator* mn) {
 void Sequence::Add(IAction* act)
 {
 	actions.push_back(act);
-	total++;
 }
 
 int Sequence::Next()
 {
-
+	actionCount++;
 	if (actions.empty())
 		return -1;
 
@@ -21,7 +20,7 @@ int Sequence::Next()
 
 	auto rs = (*it)->DoWork(manipulator);
 	if (rs != 0) {
-		return 1;
+		return actionCount;
 	}
 
 	delete (*it);
@@ -31,7 +30,12 @@ int Sequence::Next()
 
 int Sequence::PlayAll()
 {
-	return 0;
+	for (auto it_ = actions.begin(); it_ != actions.end(); ++it_) {
+		auto s = (*it_)->DoWork(manipulator);
+		if (s != 0) {
+			return actionCount;
+		}
+	}
 }
 
 Sequence::~Sequence() {
@@ -45,4 +49,9 @@ Sequence::~Sequence() {
 int Sequence::ActionsLeft() const
 {
 	return static_cast<int>(actions.size());
+}
+
+int Sequence::ActionsDone() const
+{
+	return actionCount;
 }

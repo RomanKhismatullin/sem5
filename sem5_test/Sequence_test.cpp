@@ -178,8 +178,8 @@ TEST(SequenceTests, AddNextWorkMem1234) {
 	mn->AddElement(el);
 
 
-	MockAction* act[N_t];
-	bool disp[N_t];
+	MockAction* act[N_t] = {};
+	bool disp[N_t] = {};
 
 	auto sq = new Sequence(mn);
 
