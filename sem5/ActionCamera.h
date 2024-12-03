@@ -9,4 +9,5 @@ public:
 	int N;
 	double Alpha;
 	double AlphaView;
+
 };

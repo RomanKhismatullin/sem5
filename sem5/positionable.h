@@ -20,7 +20,7 @@ public:
 	/// <returns>0 for success, 1 failure</returns>
 	virtual int MoveAlpha(double A);
 	
-	
+	virtual ~Positionable() = default;
 	
 	
 	

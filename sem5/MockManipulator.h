@@ -3,6 +3,7 @@
 //#include <vector>
 class MockManipulator final : public IManipulator {
 public:
+	bool* DISPOSEDFLAG = nullptr;
 	Positionable* Pos = nullptr;
 	//добавляет элемент 1 всегда
 	int AddElement(Positionable* pos) override ; //ввод упорядочен по номеру
@@ -15,5 +16,7 @@ public:
 
 	//0 - N=0, 1 - иначе
 	int SetElem(int N, double fi) override;
+
+	~MockManipulator() override;
 };
 

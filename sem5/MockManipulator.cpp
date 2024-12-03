@@ -34,3 +34,9 @@ int MockManipulator::SetElem(int N, double fi)
 	else
 		return 1;
 };
+
+MockManipulator::~MockManipulator()
+{
+	if (DISPOSEDFLAG != nullptr)
+		*DISPOSEDFLAG = true;
+};

@@ -15,5 +15,4 @@ int ActionCamera::DoWork(IManipulator* mn) {
 	s->SetAlpha(Alpha);
 	ss->SetAlphaView(AlphaView);
 	return 0;
-
 }

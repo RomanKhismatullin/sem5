@@ -2,13 +2,13 @@
 #include "Positionable.h"
 #include "MockManipulator.h"
 
-//int main() {
-//	MockManipulator* mm = new MockManipulator();
-//	Positionable* s = new Positionable(1, 0, 1.5, 2.5, 0);
-//	std::cout << s->X();
-//}
+int main() {
+	MockManipulator* mm = new MockManipulator();
+	Positionable* s = new Positionable(1, 0, 1.5, 2.5, 0);
+	std::cout << s->X();
+}
 
-#include "Sequence.h"
+/*#include "Sequence.h"
 #include "Element.h"
 #include "ActionMove.h"
 #include <assert.h>
@@ -25,4 +25,4 @@ int main() {
 	std::cout << "GOOD!";
 	//ASSERT_FALSE(j);
 	//ASSERT_EQ(el->Alpha(), 2.0);
-}
+}*/

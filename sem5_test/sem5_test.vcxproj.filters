@@ -26,7 +26,9 @@
     <ClCompile Include="Grip_test.cpp">
       <Filter>Positionable</Filter>
     </ClCompile>
-    <ClCompile Include="Sequence_test.cpp" />
+    <ClCompile Include="Sequence_test.cpp">
+      <Filter>MockTests</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />

@@ -84,6 +84,9 @@
     <ClCompile Include="ActionCamera.cpp">
       <Filter>Action\cpp</Filter>
     </ClCompile>
+    <ClCompile Include="MockAction.cpp">
+      <Filter>Action\cpp</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Sequence.h">
@@ -123,6 +126,9 @@
       <Filter>Positionable\h</Filter>
     </ClInclude>
     <ClInclude Include="ActionCamera.h">
+      <Filter>Action\h</Filter>
+    </ClInclude>
+    <ClInclude Include="MockAction.h">
       <Filter>Action\h</Filter>
     </ClInclude>
   </ItemGroup>

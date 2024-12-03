@@ -35,5 +35,8 @@ public:
 	/// <returns>0 - успех, 1 - ошибка</returns>
 	virtual int SetElem(int N, double fi) = 0;
 
+
+	virtual ~IManipulator() = default;
+
 };
 

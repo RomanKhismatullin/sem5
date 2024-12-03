@@ -135,6 +135,7 @@
     <ClCompile Include="Element.cpp" />
     <ClCompile Include="Grip.cpp" />
     <ClCompile Include="Manipulator.cpp" />
+    <ClCompile Include="MockAction.cpp" />
     <ClCompile Include="MockManipulator.cpp" />
     <ClCompile Include="Positionable.cpp" />
     <ClCompile Include="sem5.cpp" />
@@ -152,6 +153,7 @@
     <ClInclude Include="Grip.h" />
     <ClInclude Include="IManipulator.h" />
     <ClInclude Include="Manipulator.h" />
+    <ClInclude Include="MockAction.h" />
     <ClInclude Include="MockManipulator.h" />
     <ClInclude Include="Positionable.h" />
     <ClInclude Include="Sequence.h" />
