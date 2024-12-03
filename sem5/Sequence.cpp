@@ -12,9 +12,9 @@ void Sequence::Add(IAction* act)
 
 int Sequence::Next()
 {
-	actionCount++;
 	if (actions.empty())
 		return -1;
+	actionCount++;
 
 	auto it = actions.begin();
 

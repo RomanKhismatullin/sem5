@@ -39,8 +39,6 @@ public:
 	/// </summary>
 	int ActionsDone() const;
 
-	//int GetRepresentation();
-
 private:
 	IManipulator* manipulator;
 	vector<IAction*> actions;
