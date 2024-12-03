@@ -1,6 +1,6 @@
 #pragma once
 #include "IAction.h"
-class MockAction : IAction {
+class MockAction : public IAction {
 public:
 	/// <summary>
 	/// Конструктор мок теста

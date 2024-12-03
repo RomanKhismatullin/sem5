@@ -8,11 +8,15 @@ MockAction::MockAction(int N, bool* DispF)
 
 int MockAction::DoWork(IManipulator* mn)
 {
-	if (N == 0)
+	//return 1;
+	if (N != 0)
 		return 1;
+
 	auto i = mn->GetElement(N);
+
 	if (i == nullptr)
 		return 1;
+
 	i->MoveAlpha(1);
 	return 0;
 }

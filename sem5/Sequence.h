@@ -22,10 +22,11 @@ public:
 	int Next();
 	int PlayAll();
 	~Sequence();
+	int ActionsLeft() const;
+
 private:
 	IManipulator* manipulator;
 	vector<IAction*> actions;
-	vector<IAction*>::iterator it;
 	int total = 0;
 	
 };

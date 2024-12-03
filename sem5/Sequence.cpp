@@ -3,7 +3,6 @@
 
 Sequence::Sequence(IManipulator* mn) {
 	manipulator = mn;
-	it = actions.begin();
 }
 
 void Sequence::Add(IAction* act)
@@ -14,15 +13,21 @@ void Sequence::Add(IAction* act)
 
 int Sequence::Next()
 {
-	if (it == actions.end())
+
+	if (actions.empty())
 		return -1;
-	if ((*it)->DoWork(manipulator)) {
-		return static_cast<int>(total) - actions.size();
+
+	auto it = actions.begin();
+
+	auto rs = (*it)->DoWork(manipulator);
+	if (rs != 0) {
+		return 1;
 	}
+
 	delete (*it);
-	it = actions.erase(it);
+	actions.erase(it);
 	return 0;
-}
+}	
 
 int Sequence::PlayAll()
 {
@@ -31,7 +36,13 @@ int Sequence::PlayAll()
 
 Sequence::~Sequence() {
 	// Iterate using the iterator
-	for (auto it_ = actions.begin(); it != actions.end(); ++it) {
-		(*it_)->~IAction();
+	for (auto it_ = actions.begin(); it_ != actions.end(); ++it_) {
+		delete *it_;
 	}
+	delete manipulator;
+}
+
+int Sequence::ActionsLeft() const
+{
+	return static_cast<int>(actions.size());
 }
