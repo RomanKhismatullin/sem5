@@ -2,7 +2,6 @@
 #include "Positionable.h"
 #include "MockManipulator.h"
 
-void testSeq();
 
 int main() {
 	std::cout << "started";
@@ -15,7 +14,7 @@ int main() {
 #include "Sequence.h"
 #include "ActionMove.h"
 #include <cassert>
-void testSeq() {
+/*void testSeq() {
 	auto mn = new MockManipulator();
 	auto el = new Element(0, 1);
 	mn->AddElement(el);
@@ -38,6 +37,7 @@ void testSeq() {
 	//assert(el->Alpha() == 4.0);
 }
 
+*/
 
 /*#include "Sequence.h"
 #include "Element.h"

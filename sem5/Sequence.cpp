@@ -36,6 +36,7 @@ int Sequence::PlayAll()
 			return actionCount;
 		}
 	}
+	return 0;
 }
 
 Sequence::~Sequence() {

@@ -87,6 +87,12 @@
     <ClCompile Include="MockAction.cpp">
       <Filter>Action\cpp</Filter>
     </ClCompile>
+    <ClCompile Include="ManipulatorMoveElem.cpp">
+      <Filter>Manipulator\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Solver.cpp">
+      <Filter>Manipulator\cpp</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Sequence.h">
@@ -131,5 +137,11 @@
     <ClInclude Include="MockAction.h">
       <Filter>Action\h</Filter>
     </ClInclude>
+    <ClInclude Include="Solver.h">
+      <Filter>Manipulator\h</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
 </Project>

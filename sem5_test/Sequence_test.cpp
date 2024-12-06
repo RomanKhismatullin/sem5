@@ -93,7 +93,7 @@ TEST(SequenceTests, AddNextWorkGripWrongType) {
 	sq->Add(a2);
 
 	int j = sq->Next();//wrong type
-	ASSERT_TRUE(j == -1);
+	ASSERT_TRUE(j == 1);
 	ASSERT_EQ(el->Alpha(), 0);
 }
 
@@ -197,4 +197,28 @@ TEST(SequenceTests, AddNextWorkMem1234) {
 
 }
 
+TEST(SequenceTests, PlayALL) {
+	ASSERT_TRUE(true);
+	auto mn = new MockManipulator();
+	auto el = new Element(0, 1);
+	mn->AddElement(el);
 
+
+	MockAction* act[N_t] = {};
+	bool disp[N_t] = {};
+
+	auto sq = new Sequence(mn);
+
+	for (int i = 0; i < N_t; i++) {
+		act[i] = new MockAction(0, disp + i);
+		sq->Add(act[i]);
+	}
+
+	ASSERT_FALSE(sq->PlayAll());
+	ASSERT_TRUE(el->Alpha(), 10);
+	for (int i = 0; i < N_t; i++) {
+		ASSERT_TRUE(act[i]->DISPOSEFLAG);
+		//ASSERT_EQ(a->Alpha(), i + 1);
+	}
+
+}

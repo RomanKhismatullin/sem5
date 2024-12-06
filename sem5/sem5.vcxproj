@@ -135,11 +135,13 @@
     <ClCompile Include="Element.cpp" />
     <ClCompile Include="Grip.cpp" />
     <ClCompile Include="Manipulator.cpp" />
+    <ClCompile Include="ManipulatorMoveElem.cpp" />
     <ClCompile Include="MockAction.cpp" />
     <ClCompile Include="MockManipulator.cpp" />
     <ClCompile Include="Positionable.cpp" />
     <ClCompile Include="sem5.cpp" />
     <ClCompile Include="Sequence.cpp" />
+    <ClCompile Include="Solver.cpp" />
     <ClCompile Include="task01.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -157,6 +159,10 @@
     <ClInclude Include="MockManipulator.h" />
     <ClInclude Include="Positionable.h" />
     <ClInclude Include="Sequence.h" />
+    <ClInclude Include="Solver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

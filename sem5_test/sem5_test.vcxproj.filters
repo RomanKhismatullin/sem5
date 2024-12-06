@@ -29,6 +29,13 @@
     <ClCompile Include="Sequence_test.cpp">
       <Filter>MockTests</Filter>
     </ClCompile>
+    <ClCompile Include="Manipulator_test_add_get.cpp">
+      <Filter>Manipulator</Filter>
+    </ClCompile>
+    <ClCompile Include="Manipulator_test_set_move.cpp">
+      <Filter>Manipulator</Filter>
+    </ClCompile>
+    <ClCompile Include="Solver_test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -42,6 +49,9 @@
     </Filter>
     <Filter Include="Positionable">
       <UniqueIdentifier>{b71239f6-8436-4532-b7c5-47b214048cf3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manipulator">
+      <UniqueIdentifier>{8631c8f2-f6b7-42f3-b628-7b616adc6e87}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

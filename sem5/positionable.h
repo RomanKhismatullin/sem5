@@ -44,9 +44,6 @@ public:
 	/// Номер предыдущего звена	
 	/// </summary>
 	int NPrev() const;
-
-
-
 protected:
 	int _N;
 	int _NPrev;
