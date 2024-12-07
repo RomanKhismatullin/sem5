@@ -11,5 +11,10 @@ public:
 	/// <param name="x">x</param>
 	/// <param name="y">y</param>
 	/// <param name="Alpha">угол направления</param>
-	Element(int NPrev, int N, double x = 1, double y = 0, double Alpha = 0);
+	Element(int NPrev, int N, double x = 1, double y = 0, double Alpha = 0, double L = 1);
+
+	double L() const override;
+
+protected:
+	double _L;
 };

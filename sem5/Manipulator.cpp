@@ -41,6 +41,8 @@ int Manipulator::SetElem(int N, double fi)
 
 vector<Point*>* Manipulator::calc_points(Point* origin, int N_start, int N_stop)
 {
+
+
 	throw;
 	//Пишим динамику
 	//Хотим вычислять очередной вектор

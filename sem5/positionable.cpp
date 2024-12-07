@@ -17,6 +17,16 @@ int Positionable::NPrev() const {
 	return this->_NPrev;
 }
 
+double Positionable::L() const
+{
+	return 0.0;
+}
+
+int Positionable::IsNonValid() const
+{
+	return 0;
+}
+
 double Positionable::X() const {
 	return this->_X;
 }

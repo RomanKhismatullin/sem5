@@ -44,6 +44,16 @@ public:
 	/// Номер предыдущего звена	
 	/// </summary>
 	int NPrev() const;
+	/// <summary>
+	/// Длина звена или 0 для точечного объекта
+	/// </summary>
+	/// <returns>default  - 0</returns>
+	virtual double L() const;
+	/// <summary>
+	/// Проверка правильности создания объекта
+	/// </summary>
+	virtual int IsNonValid() const;
+
 protected:
 	int _N;
 	int _NPrev;

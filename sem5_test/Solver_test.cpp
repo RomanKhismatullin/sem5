@@ -99,3 +99,4 @@ TEST(SolverTest, TwoIntersectionBtw) {
 
     //EXPECT_EQ(t_f2, 1 / std::sqrt(2));
 }
+

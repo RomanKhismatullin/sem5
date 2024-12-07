@@ -107,6 +107,7 @@
     <ClCompile Include="Element_test.cpp" />
     <ClCompile Include="Grip_test.cpp" />
     <ClCompile Include="Manipulator_test_add_get.cpp" />
+    <ClCompile Include="Manipulator_test_move_inside_the_function.cpp" />
     <ClCompile Include="Manipulator_test_set_move.cpp" />
     <ClCompile Include="Positionable_test.cpp" />
     <ClCompile Include="pch.cpp">
@@ -117,6 +118,7 @@
     </ClCompile>
     <ClCompile Include="Sequence_test.cpp" />
     <ClCompile Include="Solver_test.cpp" />
+    <ClCompile Include="Validation_test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\sem5\sem5.vcxproj">

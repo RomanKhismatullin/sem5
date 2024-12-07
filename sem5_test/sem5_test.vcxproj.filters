@@ -36,6 +36,12 @@
       <Filter>Manipulator</Filter>
     </ClCompile>
     <ClCompile Include="Solver_test.cpp" />
+    <ClCompile Include="Manipulator_test_move_inside_the_function.cpp">
+      <Filter>Manipulator</Filter>
+    </ClCompile>
+    <ClCompile Include="Validation_test.cpp">
+      <Filter>Manipulator</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />

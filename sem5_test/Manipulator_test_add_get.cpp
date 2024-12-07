@@ -49,3 +49,9 @@ TEST(ManipulatorTests, GetRight) {
 	ASSERT_EQ(mn->GetElement(1), e1);
 
 }
+
+TEST(ManipulatorTests, GetVoid) {
+	IManipulator* mn = new Manipulator();
+	ASSERT_EQ(mn->GetElement(0), nullptr);
+
+}

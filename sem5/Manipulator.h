@@ -38,8 +38,13 @@ public:
 	/// </summary>
 	/// <returns>Returns -1, on no element; </returns>
 	int SetElem(int N, double fi) override;
+
+
+
 private:
 	vector<Positionable*> el;//приватен, ссылки храняться где-то снаружи
 	vector<Point*>* calc_points(Point* origin, int N_start, int N_stop); //[N_strt;N_stop)
 	void DisposeVector(vector<Point*>* v);
+	double collision = 0;
+	double N_collision = 0;
 };

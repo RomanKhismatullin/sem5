@@ -7,6 +7,8 @@ public:
 	void SetOpeningAlpha(double A);
 
 	double AlphaOpening() const;
+
+	
 private:
 	double _OpeningAlpha;
 };
