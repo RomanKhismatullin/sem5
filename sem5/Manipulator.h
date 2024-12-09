@@ -45,7 +45,7 @@ public:
 private:
 	vector<Positionable*> el;//приватен, ссылки храняться где-то снаружи
 	void DisposeVector(vector<Point*>* v);
-	int SmallRot(int N, double fi); //повороты на углы меньше Pi
+	int SmallRot(const int N, const double fi); //повороты на углы меньше Pi
 	double collision = 0;
 	double N_collision = 0;
 };

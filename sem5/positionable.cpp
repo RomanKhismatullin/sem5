@@ -1,21 +1,13 @@
 #include "Positionable.h"
 
 
-Positionable::Positionable(int N_prev, int N, double x, double y, double Alpha) {
+Positionable::Positionable(int N_prev, int N, double x, double y, double Alpha) : TreeObj(N_prev, N) {
 	this->_X = x;
 	this->_Y = y;
 	this->_Alpha = Alpha;
-	this->_N = N;
-	this->_NPrev = N_prev;
 }
 
-int Positionable::N() const {
-	return this->_N;
-}
 
-int Positionable::NPrev() const {
-	return this->_NPrev;
-}
 
 double Positionable::L() const
 {
@@ -25,6 +17,11 @@ double Positionable::L() const
 complex<double> Positionable::drw2()
 {
 	return drw + std::polar(this->L(), this->drwAlpha);
+}
+
+void Positionable::TweekAlpha(double alph)
+{
+	_Alpha -= alph;
 }
 
 double Positionable::X() const {

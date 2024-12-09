@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "../sem5/Positionable.h"
 #include "../sem5/Positionable.cpp"
+#include "../sem5/TreeObj.h"
+#include "../sem5/TreeObj.cpp"
 
 TEST(MoveableTest, DefaultConstructor) {
 	Positionable* s = new Positionable(0, 1);

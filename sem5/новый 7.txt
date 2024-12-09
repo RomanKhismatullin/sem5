@@ -1,0 +1,48 @@
+
+
+Напиши функцию, 
+которая по vector<TreeObj*> tr такому что tr[i]->N() = i для любого i, tr[i]->NPrev() <= tr[i]->N() для любого i
+и числу int Nstrt (номеру узла) Nstrt > 0
+запишет в vector<TreeObj*>* brnch ссылки на все узлы и листья включая tr[Nstrt], следующих за tr[Nstrt] 
+и вернет число элементов в векторе
+
+int BuildBranch(vector<TreeObj*>* tr, int Nstrt, vector<TreeObj*>* brnch)
+
+#pragma once
+class TreeObj {
+
+public:
+	TreeObj(int NPrev, int N);
+
+	/// <summary>
+	/// Номер этого звена
+	/// </summary>
+	virtual int N() const final;
+	/// <summary>
+	/// Номер предыдущего звена	
+	/// </summary>
+	int NPrev() const;
+	
+
+protected:
+	int _N;
+	int _NPrev;
+};
+
+
+
+#include "TreeObj.h"
+
+TreeObj::TreeObj(int NPrev, int N)
+{
+	_NPrev = NPrev;
+	_N = N;
+}
+
+int TreeObj::N() const {
+	return this->_N;
+}
+
+int TreeObj::NPrev() const {
+	return this->_NPrev;
+}

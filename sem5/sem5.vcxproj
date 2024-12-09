@@ -133,6 +133,7 @@
     <ClCompile Include="ActionSet.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Element.cpp" />
+    <ClCompile Include="GraphSolver.cpp" />
     <ClCompile Include="Grip.cpp" />
     <ClCompile Include="Manipulator.cpp" />
     <ClCompile Include="ManipulatorMoveElem.cpp" />
@@ -143,12 +144,14 @@
     <ClCompile Include="Sequence.cpp" />
     <ClCompile Include="Solver.cpp" />
     <ClCompile Include="task01.cpp" />
+    <ClCompile Include="TreeObj.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ActionCamera.h" />
     <ClInclude Include="ActionGrip.h" />
     <ClInclude Include="ActionSet.h" />
     <ClInclude Include="ActionMove.h" />
+    <ClInclude Include="GraphSolver.h" />
     <ClInclude Include="IAction.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Element.h" />
@@ -160,6 +163,7 @@
     <ClInclude Include="Positionable.h" />
     <ClInclude Include="Sequence.h" />
     <ClInclude Include="Solver.h" />
+    <ClInclude Include="TreeObj.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />

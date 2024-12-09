@@ -50,6 +50,12 @@
     <ClCompile Include="Solver_test_arc.cpp">
       <Filter>Solver</Filter>
     </ClCompile>
+    <ClCompile Include="Solver_test_arc_intersection.cpp">
+      <Filter>Solver</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphSolver_test.cpp">
+      <Filter>Solver</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />

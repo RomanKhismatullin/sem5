@@ -59,7 +59,7 @@ void Manipulator::DRW()
 		Point p_drw = el[el[i]->NPrev()]->drw;
 
 		Point mv = Point(el[i]->X(), el[i]->Y()); //offset
-		Point rot = Point(std::cos(p_drwalpha), std::sin(p_drwalpha));
+		Point rot = Point(std::cos(p_drwalpha), std::sin(p_drwalpha));//Берем ориентацию предыдущей точки
 
 
 

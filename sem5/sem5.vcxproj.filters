@@ -93,6 +93,12 @@
     <ClCompile Include="Solver.cpp">
       <Filter>Manipulator\cpp</Filter>
     </ClCompile>
+    <ClCompile Include="TreeObj.cpp">
+      <Filter>Positionable\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphSolver.cpp">
+      <Filter>Manipulator\cpp</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Sequence.h">
@@ -138,6 +144,12 @@
       <Filter>Action\h</Filter>
     </ClInclude>
     <ClInclude Include="Solver.h">
+      <Filter>Manipulator\h</Filter>
+    </ClInclude>
+    <ClInclude Include="TreeObj.h">
+      <Filter>Positionable\h</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphSolver.h">
       <Filter>Manipulator\h</Filter>
     </ClInclude>
   </ItemGroup>

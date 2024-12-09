@@ -1,13 +1,12 @@
 #pragma once
-/// <summary>
-/// Базовый класс подвижного элемента
-/// </summary>
-
+#include "TreeObj.h"
 #include <complex>
 using std::complex;
 
-
-class Positionable {
+/// <summary>
+/// Базовый класс подвижного элемента
+/// </summary>
+class Positionable : public TreeObj {
 public:
 	/// <summary>
 	/// Конструктор
@@ -43,14 +42,7 @@ public:
 	/// Угол относительно оси Ox предыдущего звена
 	/// </summary>
 	double Alpha() const;
-	/// <summary>
-	/// Номер этого звена
-	/// </summary>
-	virtual int N() const final;
-	/// <summary>
-	/// Номер предыдущего звена	
-	/// </summary>
-	int NPrev() const;
+
 	/// <summary>
 	/// Длина звена или 0 для точечного объекта
 	/// </summary>
@@ -61,10 +53,12 @@ public:
 	complex<double> drw;
 	virtual complex<double> drw2();
 	double drwAlpha;
+	/// <summary>
+	/// Смещает alpha на параметр alph, никаких доп проверок
+	void TweekAlpha(double alph);
 
 protected:
-	int _N;
-	int _NPrev;
+
 	double _X;
 	double _Y;
 	double _Alpha;

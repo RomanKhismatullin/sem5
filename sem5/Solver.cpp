@@ -2,8 +2,10 @@
 #define Point std::complex<double>
 
 const double EPSILON = 1e-9;
+using std::max;
+using std::min;
 
-int solver::GetIntersect(Point* L_p1, Point* L_p2, Point* Center, Point* OnRadius, double* f1, double* f2, double* t_f1, double*t_f2) {
+int solver::GetIntersect(const Point* L_p1, const  Point* L_p2, const  Point* Center, const Point* OnRadius, double* f1, double* f2, double* t_f1, double*t_f2) {
     // Extract coordinates
     Point p1 = *L_p1;
     Point p2 = *L_p2;
@@ -64,10 +66,6 @@ int solver::GetIntersect(Point* L_p1, Point* L_p2, Point* Center, Point* OnRadiu
     return 2;
 }
 
-
-
-using std::max;
-using std::min;
 int solver::CheckBetween(double d3, double d1, double d2)
 {
     auto mx = max(d1, d2);
@@ -82,7 +80,6 @@ int solver::CheckBetween(double d3)
     return d3 <= mx - CB_EPS && d3 >= mn + CB_EPS;
 }
 
-
 #define Pi 3.14159265358979323846
 #define ME_EPS 1e-9
 int solver::MyEQ(double f1, double f2)
@@ -94,8 +91,6 @@ int solver::MyEQ(double f1, double f2)
         return 0;
     }
 }
-
-
 
 #define CS_EPS 1e-9/*
 int solver::CheckSegmentIntersection(Point* p1, Point* p2, Point* g1, Point* g2) {
@@ -157,7 +152,7 @@ int solver::CheckSegmentIntersection(Point* p1, Point* p2, Point* g1, Point* g2)
 }
 */
 
-int solver::CheckSegmentIntersection(Point* p1, Point* p2, Point* g1, Point* g2) {
+int solver::CheckSegmentIntersection(const Point* p1, const  Point* p2, const  Point* g1, const  Point* g2) {
     // Направляющие векторы
     Point d1 = *p2 - *p1; // Вектор для первого отрезка
     Point d2 = *g2 - *g1; // Вектор для второго отрезка
@@ -224,11 +219,9 @@ int solver::CheckSegmentIntersection(Point* p1, Point* p2, Point* g1, Point* g2)
 
     return 1; // Отрезки пересекаются
 }
-
-
-
 // Функция для проверки, лежит ли угол teta на дуге (f1, f2)
-int solver::CheckArcAng(double f1, double f2, double teta) {
+
+int solver::CheckArcAng(double f1,  double f2,  double teta) {
 
     // Нормализуем углы в диапазон [0, 2*PI)
     auto normalize = [](double angle) {
@@ -250,12 +243,11 @@ int solver::CheckArcAng(double f1, double f2, double teta) {
         return (teta >= f1 || teta <= f2) ? 1 : 0;
     }
 }
-
-
-#define PI 3.141592653589793
+#define PI 3.14159265358979323846
 #define TWO_PI 2 * PI
 // Функция для проверки, лежит ли угол teta на дуге, заданной началом и длиной
-int solver::CheckArc(double start, double arcLength, double teta) {
+
+int solver::CheckArc(double start, double arcLength,  double teta) {
     // Нормализуем угол в диапазон [0, 2*PI)
     auto normalize = [](double angle) {
         while (angle < 0) angle += TWO_PI;
@@ -295,4 +287,35 @@ int solver::CheckArc(double start, double arcLength, double teta) {
             return (teta >= end || teta <= start) ? 1 : 0;
         }
     }
+}
+
+
+
+int solver::CheckArchIntersection(const Point* L_p1, const  Point* L_p2, const Point* origin, const Point* OnRadius, double alpha)
+{
+    double f1;
+    double f2;
+    double t_f1;
+    double t_f2;
+    int rs = GetIntersect(L_p1, L_p2, origin, OnRadius, &f1, &f2, &t_f1, &t_f2);
+    if (rs == 0)
+        return 0;
+    if (rs == 1) {
+        if (CheckBetween(t_f1) && CheckArc(0, alpha, f1)) 
+            return 1;
+        else
+            return 0;
+    }
+
+    if (rs == 2) {
+        if (CheckBetween(t_f1) && CheckArc(0, alpha, f1))
+            return 1;
+        if (CheckBetween(t_f2) && CheckArc(0, alpha, f2))
+            return 1;
+        return 0;
+        
+    }
+    throw; //так быть недолжно
+
+    //Inter
 }
