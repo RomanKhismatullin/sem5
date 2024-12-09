@@ -6,7 +6,7 @@
 using std::vector;
 using std::min;
 using std::fabs;
-#define Pi 3.14159265358979323846;
+#define Pi 3.14159265358979323846
 #include <complex>
 #define Point std::complex<double>
 
@@ -40,11 +40,12 @@ public:
 	int SetElem(int N, double fi) override;
 
 
+	void DRW();
 
 private:
 	vector<Positionable*> el;//приватен, ссылки храняться где-то снаружи
-	vector<Point*>* calc_points(Point* origin, int N_start, int N_stop); //[N_strt;N_stop)
 	void DisposeVector(vector<Point*>* v);
+	int SmallRot(int N, double fi); //повороты на углы меньше Pi
 	double collision = 0;
 	double N_collision = 0;
 };

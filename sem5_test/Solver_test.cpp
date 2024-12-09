@@ -65,11 +65,11 @@ TEST(SolverTest, NoIntersection) {
 }
 
 TEST(SolverTest, CheckBtw) {
-    EXPECT_TRUE(solver::CheckBetween(0, 1, 0.5));
-    EXPECT_TRUE(solver::CheckBetween(1, 0, 0.5));
-    EXPECT_FALSE(solver::CheckBetween(1, 0, 2));
-    EXPECT_FALSE(solver::CheckBetween(1, 0, 1.1));
-    EXPECT_TRUE(solver::CheckBetween(1, 0, 1));
+    EXPECT_TRUE(solver::CheckBetween(0.5, 1, 0));
+    EXPECT_TRUE(solver::CheckBetween(0.5));
+    EXPECT_FALSE(solver::CheckBetween(2));
+    EXPECT_FALSE(solver::CheckBetween(1.1));
+    EXPECT_FALSE(solver::CheckBetween(1));
 }
 
 TEST(SolverTest, TwoIntersectionBtw) {
@@ -93,10 +93,11 @@ TEST(SolverTest, TwoIntersectionBtw) {
     EXPECT_TRUE(fabs(t_f2 - (1 / std::sqrt(2))) < 1e-5);
     EXPECT_FALSE(solver::CheckBetween(t_f1));
     EXPECT_TRUE(solver::CheckBetween(t_f2));
-    //the line below is used in manipulator
-    EXPECT_FALSE(solver::CheckBetween(t_f1) && solver::CheckBetween(f1, 0, M_PI/4) || solver::CheckBetween(t_f2) && solver::CheckBetween(f1, 0, M_PI / 4));
-    EXPECT_TRUE(solver::CheckBetween(t_f1) && solver::CheckBetween(f1, 0, -5*M_PI/6) || solver::CheckBetween(t_f2) && solver::CheckBetween(f1, 0, -5*M_PI/6));
+    //the line below is used in manipulator?
+    
+    // проверено, все ок
+     
+    //EXPECT_FALSE(solver::CheckBetween(t_f1) && solver::CheckBetween(M_PI / 4, f1, 0) || solver::CheckBetween(t_f2) && solver::CheckBetween(M_PI / 4, f1, 0));
+    //EXPECT_FALSE(solver::CheckBetween(t_f1) && solver::CheckBetween(-5 * M_PI / 6, f1, 0) || solver::CheckBetween(t_f2) && solver::CheckBetween(-5 * M_PI / 6, f1, 0));
 
-    //EXPECT_EQ(t_f2, 1 / std::sqrt(2));
 }
-

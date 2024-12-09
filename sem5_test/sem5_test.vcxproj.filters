@@ -35,12 +35,20 @@
     <ClCompile Include="Manipulator_test_set_move.cpp">
       <Filter>Manipulator</Filter>
     </ClCompile>
-    <ClCompile Include="Solver_test.cpp" />
     <ClCompile Include="Manipulator_test_move_inside_the_function.cpp">
       <Filter>Manipulator</Filter>
     </ClCompile>
     <ClCompile Include="Validation_test.cpp">
       <Filter>Manipulator</Filter>
+    </ClCompile>
+    <ClCompile Include="Solver_test.cpp">
+      <Filter>Solver</Filter>
+    </ClCompile>
+    <ClCompile Include="Solver_test_Intersect.cpp">
+      <Filter>Solver</Filter>
+    </ClCompile>
+    <ClCompile Include="Solver_test_arc.cpp">
+      <Filter>Solver</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -58,6 +66,9 @@
     </Filter>
     <Filter Include="Manipulator">
       <UniqueIdentifier>{8631c8f2-f6b7-42f3-b628-7b616adc6e87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Solver">
+      <UniqueIdentifier>{be5690c1-2116-429f-a08b-8be66c5834bb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

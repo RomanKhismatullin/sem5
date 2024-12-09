@@ -2,6 +2,11 @@
 /// <summary>
 /// Базовый класс подвижного элемента
 /// </summary>
+
+#include <complex>
+using std::complex;
+
+
 class Positionable {
 public:
 	/// <summary>
@@ -19,6 +24,8 @@ public:
 	virtual int SetAlpha(double A);
 	/// <returns>0 for success, 1 failure</returns>
 	virtual int MoveAlpha(double A);
+
+	virtual int CanMoveAlpha(double A);
 	
 	virtual ~Positionable() = default;
 	
@@ -49,10 +56,11 @@ public:
 	/// </summary>
 	/// <returns>default  - 0</returns>
 	virtual double L() const;
-	/// <summary>
-	/// Проверка правильности создания объекта
-	/// </summary>
-	virtual int IsNonValid() const;
+
+
+	complex<double> drw;
+	virtual complex<double> drw2();
+	double drwAlpha;
 
 protected:
 	int _N;

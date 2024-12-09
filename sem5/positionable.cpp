@@ -22,9 +22,9 @@ double Positionable::L() const
 	return 0.0;
 }
 
-int Positionable::IsNonValid() const
+complex<double> Positionable::drw2()
 {
-	return 0;
+	return drw + std::polar(this->L(), this->drwAlpha);
 }
 
 double Positionable::X() const {
@@ -47,8 +47,13 @@ int Positionable::SetAlpha(double A) {
 
 
 int Positionable::MoveAlpha(double A) {
-		this->_Alpha += A;
+	this->_Alpha += A;
 	return 0;
+}
+
+int Positionable::CanMoveAlpha(double A)
+{
+	return 1;
 }
 
 

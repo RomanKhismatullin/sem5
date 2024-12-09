@@ -1,6 +1,8 @@
 ﻿#include <iostream>
 #include "Positionable.h"
 #include "MockManipulator.h"
+#include "Manipulator.h"
+#include "Solver.h"
 
 
 int main() {
@@ -9,6 +11,17 @@ int main() {
 	//Positionable* s = new Positionable(1, 0, 1.5, 2.5, 0);
 	//std::cout << s->X();
 	//testSeq();
+	auto mn = new Manipulator();
+	auto el1 = new Element(0, 0, 0, 0, Pi/2, 1);
+	auto el2 = new Element(0, 1, 0, 0, Pi/2, 1);
+	auto el3 = new Element(1, 2, 0, 0, Pi/2, 1);
+	mn->AddElement(el1);
+	mn->AddElement(el2);
+	mn->AddElement(el3);
+	mn->DRW();
+	std::cout << mn->MoveElem(1, 0);
+	std::cout << "l";
+
 }
 
 #include "Sequence.h"

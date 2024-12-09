@@ -2,7 +2,6 @@
 #include "../sem5/Manipulator.h"
 #include "../sem5/Manipulator.cpp"
 #include "../sem5/ManipulatorMoveElem.cpp"
-
 #include "../sem5/Element.h"
 
 
@@ -15,6 +14,14 @@ TEST(ManipulatorTests, AdditionRight) {
 	ASSERT_FALSE(mn->AddElement(e0));
 	ASSERT_FALSE(mn->AddElement(e1));
 	ASSERT_FALSE(mn->AddElement(e2));
+
+
+	auto e3 = new Element(0, 0);
+	auto e4 = new Element(2, 3, 0,0,311, 0);
+	auto e5 = new Element(2, 3, 0,0, 1, -1);
+	ASSERT_TRUE(mn->AddElement(e3));
+	ASSERT_TRUE(mn->AddElement(e4));
+	ASSERT_TRUE(mn->AddElement(e5));
 }
 
 TEST(ManipulatorTests, AdditionWrong) {
