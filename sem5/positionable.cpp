@@ -5,6 +5,8 @@ Positionable::Positionable(int N_prev, int N, double x, double y, double Alpha) 
 	this->_X = x;
 	this->_Y = y;
 	this->_Alpha = Alpha;
+	drwAlpha = 0;
+	drw = complex<double>(0.0, 0.0);
 }
 
 

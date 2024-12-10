@@ -1,77 +1,163 @@
-#include "pch.h"
-
-//#include "../sem5/TreeObj.h" 
+п»ї#include "pch.h"
+//
+////#include "../sem5/TreeObj.h" 
 #include "../sem5/GraphSolver.h"
 #include "../sem5/GraphSolver.cpp"
+#include "../sem5/Positionable.h"
 
-// Тест на случай, когда индекс Nstrt невалиден (например, отрицательное значение или больше, чем размер массива)
-TEST(BuildPredecessorBranchTest, InvalidStartIndex) {
+// Р‘Р°Р·РѕРІС‹Р№ С‚РµСЃС‚ РґР»СЏ РєРѕСЂСЂРµРєС‚РЅРѕРіРѕ РґРµСЂРµРІР°
+TEST(BuildPredecessorBranchTest, BasicTreeStructure) {
+    // Р”РµСЂРµРІРѕ: 0 -> 1 -> 2
     std::vector<TreeObj*> tree;
-    tree.push_back(new TreeObj(0, 1));  // Узел 1
-    tree.push_back(new TreeObj(1, 2));  // Узел 2
-    tree.push_back(new TreeObj(2, 3));  // Узел 3
+    tree.push_back(new TreeObj(0, 0)); // РЈР·РµР» 0
+    tree.push_back(new TreeObj(0, 1)); // РЈР·РµР» 1
+    tree.push_back(new TreeObj(1, 2)); // РЈР·РµР» 2
 
     std::vector<TreeObj*> branch;
 
-    // Проверка для невалидного индекса (индекс -1)
-    EXPECT_EQ(GraphSolver::BuildPredecessorBranch(&tree, -1, &branch), 0);
+    // РџСЂРѕРІРµСЂСЏРµРј, С‡С‚Рѕ РґР»СЏ Nstrt = 1 РїСЂРѕРіСЂР°РјРјР° Р·Р°С…РІР°С‚С‹РІР°РµС‚ СѓР·Р»С‹ 1 Рё 2
+    EXPECT_EQ(GSolver::BuildPredecessorBranch(tree, 1, branch), 2);
 
-    // Проверка для индекса, который больше или равен размеру вектора
-    EXPECT_EQ(GraphSolver::BuildPredecessorBranch(&tree, 5, &branch), 0);
+    // РџСЂРѕРІРµСЂСЏРµРј СЃРѕРґРµСЂР¶РёРјРѕРµ branch
+    ASSERT_EQ(branch.size(), 2);
+    EXPECT_EQ(branch[0]->N(), 1);
+    EXPECT_EQ(branch[1]->N(), 2);
+
+    // РћСЃРІРѕР±РѕР¶РґРµРЅРёРµ РїР°РјСЏС‚Рё
+    for (auto obj : tree) {
+        delete obj;
+    }
 }
 
-// Тест на случай, когда узел существует, и функция находит всех предков
-TEST(BuildPredecessorBranchTest, ValidStartIndex) {
+// РўРµСЃС‚ РґРµСЂРµРІР° СЃ РѕРґРЅРёРј СѓР·Р»РѕРј
+TEST(BuildPredecessorBranchTest, SingleNodeTree) {
+    // Р”РµСЂРµРІРѕ: 0
     std::vector<TreeObj*> tree;
-    tree.push_back(new TreeObj(0, 1));  // Узел 1
-    tree.push_back(new TreeObj(1, 2));  // Узел 2
-    tree.push_back(new TreeObj(2, 3));  // Узел 3
-    tree.push_back(new TreeObj(1, 4));  // Узел 4
-    tree.push_back(new TreeObj(4, 5));  // Узел 5
-    tree.push_back(new TreeObj(4, 6));  // Узел 6
+    tree.push_back(new TreeObj(0, 0)); // РЈР·РµР» 0
 
     std::vector<TreeObj*> branch;
 
-    // Запускаем для узла 4 (согласно описанию задачи, это начальный узел)
-    EXPECT_EQ(GraphSolver::BuildPredecessorBranch(&tree, 4, &branch), 3);
+    // РџСЂРѕРІРµСЂСЏРµРј, С‡С‚Рѕ РґР»СЏ Nstrt = 0 РїСЂРѕРіСЂР°РјРјР° Р·Р°С…РІР°С‚С‹РІР°РµС‚ С‚РѕР»СЊРєРѕ СѓР·РµР» 0
+    EXPECT_EQ(GSolver::BuildPredecessorBranch(tree, 0, branch), 1);
 
-    // Проверяем, что в векторе branch будут только узлы 4, 5, и 6
-    EXPECT_EQ(branch[0]->N(), 4);
-    EXPECT_EQ(branch[1]->N(), 5);
-    EXPECT_EQ(branch[2]->N(), 6);
+    // РџСЂРѕРІРµСЂСЏРµРј СЃРѕРґРµСЂР¶РёРјРѕРµ branch
+    ASSERT_EQ(branch.size(), 1);
+    EXPECT_EQ(branch[0]->N(), 0);
+
+    // РћСЃРІРѕР±РѕР¶РґРµРЅРёРµ РїР°РјСЏС‚Рё
+    for (auto obj : tree) {
+        delete obj;
+    }
 }
 
-// Тест на случай, когда дерево не имеет предков
-TEST(BuildPredecessorBranchTest, NoPredecessors) {
+// РўРµСЃС‚ РґРµСЂРµРІР° СЃ РЅРµСЃРєРѕР»СЊРєРёРјРё СѓСЂРѕРІРЅСЏРјРё
+TEST(BuildPredecessorBranchTest, MultiLevelTree) {
+    // Р”РµСЂРµРІРѕ:
+    //        0
+    //       / \
+    //      1   2
+    //     / \
+    //    3   4
     std::vector<TreeObj*> tree;
-    tree.push_back(new TreeObj(0, 1));  // Узел 1
-    tree.push_back(new TreeObj(0, 2));  // Узел 2
+    tree.push_back(new TreeObj(0, 0)); // РЈР·РµР» 0
+    tree.push_back(new TreeObj(0, 1)); // РЈР·РµР» 1
+    tree.push_back(new TreeObj(0, 2)); // РЈР·РµР» 2
+    tree.push_back(new TreeObj(1, 3)); // РЈР·РµР» 3
+    tree.push_back(new TreeObj(1, 4)); // РЈР·РµР» 4
 
     std::vector<TreeObj*> branch;
 
-    // Запускаем для узла 2, который не имеет предков
-    EXPECT_EQ(GraphSolver::BuildPredecessorBranch(&tree, 1, &branch), 1);
+    // РџСЂРѕРІРµСЂСЏРµРј, С‡С‚Рѕ РґР»СЏ Nstrt = 1 РїСЂРѕРіСЂР°РјРјР° Р·Р°С…РІР°С‚С‹РІР°РµС‚ СѓР·Р»С‹ 1, 3, Рё 4
+    EXPECT_EQ(GSolver::BuildPredecessorBranch(tree, 1, branch), 3);
 
-    // Проверяем, что в ветви будет только узел 2
-    EXPECT_EQ(branch[0]->N(), 2);
+    // РџСЂРѕРІРµСЂСЏРµРј СЃРѕРґРµСЂР¶РёРјРѕРµ branch
+    ASSERT_EQ(branch.size(), 3);
+    EXPECT_EQ(branch[0]->N(), 1);
+    EXPECT_EQ(branch[1]->N(), 3);
+    EXPECT_EQ(branch[2]->N(), 4);
+
+    // РћСЃРІРѕР±РѕР¶РґРµРЅРёРµ РїР°РјСЏС‚Рё
+    for (auto obj : tree) {
+        delete obj;
+    }
 }
 
-// Тест на случай, когда ветвь построена из нескольких предков
-TEST(BuildPredecessorBranchTest, MultiplePredecessors) {
+// РўРµСЃС‚ РґРµСЂРµРІР°, РіРґРµ Nstrt вЂ” РєРѕСЂРµРЅСЊ
+TEST(BuildPredecessorBranchTest, RootNodeStart) {
+    // Р”РµСЂРµРІРѕ:
+    //        0
+    //       / \
+    //      1   2
     std::vector<TreeObj*> tree;
-    tree.push_back(new TreeObj(0, 1));  // Узел 1
-    tree.push_back(new TreeObj(0, 2));  // Узел 2
-    tree.push_back(new TreeObj(1, 3));  // Узел 3
-    tree.push_back(new TreeObj(1, 4));  // Узел 4
-    tree.push_back(new TreeObj(3, 5));  // Узел 5
+    tree.push_back(new TreeObj(0, 0)); // РЈР·РµР» 0
+    tree.push_back(new TreeObj(0, 1)); // РЈР·РµР» 1
+    tree.push_back(new TreeObj(0, 2)); // РЈР·РµР» 2
 
     std::vector<TreeObj*> branch;
 
-    // Запускаем для узла 4
-    EXPECT_EQ(GraphSolver::BuildPredecessorBranch(&tree, 4, &branch), 3);
+    // РџСЂРѕРІРµСЂСЏРµРј, С‡С‚Рѕ РґР»СЏ Nstrt = 0 РїСЂРѕРіСЂР°РјРјР° Р·Р°С…РІР°С‚С‹РІР°РµС‚ С‚РѕР»СЊРєРѕ СѓР·РµР» 0
+    EXPECT_EQ(GSolver::BuildPredecessorBranch(tree, 0, branch), 3);
 
-    // Проверяем, что в ветви будут узлы 4, 1 и 3
-    EXPECT_EQ(branch[0]->N(), 4);
-    EXPECT_EQ(branch[1]->N(), 1);
-    EXPECT_EQ(branch[2]->N(), 3);
+    // РџСЂРѕРІРµСЂСЏРµРј СЃРѕРґРµСЂР¶РёРјРѕРµ branch
+    ASSERT_EQ(branch.size(), 3);
+    EXPECT_EQ(branch[0]->N(), 0);
+
+    // РћСЃРІРѕР±РѕР¶РґРµРЅРёРµ РїР°РјСЏС‚Рё
+    for (auto obj : tree) {
+        delete obj;
+    }
+}
+
+TEST(BuildPredecessorBranchTest, RootNodeStart2) {
+    // Р”РµСЂРµРІРѕ:
+    // 0
+    // в”њв”Ђв”Ђ 1
+    // в”‚   в”њв”Ђв”Ђ 3
+    // в”‚   в””в”Ђв”Ђ 4
+    // в””в”Ђв”Ђ 2
+
+    std::vector<TreeObj*> tree;
+    tree.push_back(new TreeObj(0, 0));  // РЈР·РµР» 0 (РєРѕСЂРµРЅСЊ)
+    tree.push_back(new TreeObj(0, 1));  // РЈР·РµР» 1
+    tree.push_back(new TreeObj(0, 2));  // РЈР·РµР» 2
+    tree.push_back(new TreeObj(1, 3));  // РЈР·РµР» 3
+    tree.push_back(new TreeObj(1, 4));  // РЈР·РµР» 4
+
+    std::vector<TreeObj*> branch;
+
+    // РћР¶РёРґР°РµРј, С‡С‚Рѕ РІСЃРµ СѓР·Р»С‹ РІРєР»СЋС‡РµРЅС‹
+    EXPECT_EQ(GSolver::BuildPredecessorBranch(tree, 0, branch), 5);
+    EXPECT_EQ(GSolver::BuildPredecessorBranch(tree, 1, branch), 3);
+    EXPECT_EQ(branch.size(), 3);
+
+}
+
+
+
+#include "../sem5/Camera.h"
+
+TEST(BuildPredecessorBranchTest, PositionablesAsLeavs) {
+    // Р”РµСЂРµРІРѕ:
+    //        0
+    //       / \
+    //      1   2
+    //     / \
+    //    3   4
+    std::vector<Positionable*> tree;
+    tree.push_back(new Positionable(0, 0)); // РЈР·РµР» 0
+    tree.push_back(new Camera(0, 1)); // РЈР·РµР» 1
+    tree.push_back(new Positionable(0, 2)); // РЈР·РµР» 2
+    tree.push_back(new Positionable(1, 3)); // РЈР·РµР» 3
+    tree.push_back(new Positionable(1, 4)); // РЈР·РµР» 4
+
+    std::vector<Positionable*> branch;
+    
+    // РџСЂРѕРІРµСЂСЏРµРј, С‡С‚Рѕ РґР»СЏ Nstrt = 1 РїСЂРѕРіСЂР°РјРјР° Р·Р°С…РІР°С‚С‹РІР°РµС‚ СѓР·Р»С‹ 1, 3, Рё 4
+    EXPECT_EQ(GSolver::BuildPredecessorBranch(tree, 1, branch), 3);
+
+    // РџСЂРѕРІРµСЂСЏРµРј СЃРѕРґРµСЂР¶РёРјРѕРµ branch
+    ASSERT_EQ(branch.size(), 3);
+    EXPECT_EQ(branch[0]->N(), 1);
+    EXPECT_EQ(branch[1]->N(), 3);
+    EXPECT_EQ(branch[2]->N(), 4);
 }

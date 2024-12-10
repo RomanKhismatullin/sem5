@@ -14,6 +14,8 @@ public:
 	int NPrev() const;
 	
 
+	int COLOR = 0;
+
 protected:
 	int _N;
 	int _NPrev;

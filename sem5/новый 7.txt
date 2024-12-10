@@ -6,7 +6,7 @@
 запишет в vector<TreeObj*>* brnch ссылки на все узлы и листья включая tr[Nstrt], следующих за tr[Nstrt] 
 и вернет число элементов в векторе
 
-int BuildBranch(vector<TreeObj*>* tr, int Nstrt, vector<TreeObj*>* brnch)
+int BuildBranch(vector<TreeObj*>* tr, int Nstrt, vector<TreeObj*>* brnch);
 
 #pragma once
 class TreeObj {
@@ -23,6 +23,7 @@ public:
 	/// </summary>
 	int NPrev() const;
 	
+	int COLOR;
 
 protected:
 	int _N;
@@ -45,4 +46,44 @@ int TreeObj::N() const {
 
 int TreeObj::NPrev() const {
 	return this->_NPrev;
+}
+
+int GSolver::BuildPredecessorBranch(std::vector<TreeObj*>& tr, int Nstrt, std::vector<TreeObj*>& brnch) { //O(N) линия
+    // Проверка на валидность Nstrt
+    if (Nstrt < 0 || Nstrt >= tr.size()) {
+        return 0; // Если индекс некорректен, возвращаем 0
+    }
+
+
+    tr[Nstrt]->COLOR = 2; //дети - черные
+
+    for (int i = Nstrt + 1; i < tr.size(); i++) {
+        tr[i]->COLOR = 0; //непонятно - белые
+    }
+
+    for (int i = 0; i < Nstrt; i++) { //все плохие - серые
+        tr[i]->COLOR = 1;
+    }
+
+    for (int i = tr.size() - 1; i > Nstrt; i--) { //начинаем с последнего
+        int j = i; // оно гарантом боьше Nstrt
+        
+        do {
+            if (tr[j]->COLOR > 0) {
+                break;
+            }
+            j = tr[j]->NPrev(); // Двигаемся в лево по списку
+        } while (tr[j]->COLOR == 0);
+
+
+        int paint = tr[j]->COLOR;
+        j = i;
+        do {
+            tr[j]->COLOR = paint;
+            j = tr[j]->NPrev(); // Двигаемся в лево по списку
+        } while (tr[j]->COLOR < 1);
+    }
+
+
+    return brnch.size();
 }

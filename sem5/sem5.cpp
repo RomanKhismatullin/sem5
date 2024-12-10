@@ -3,10 +3,35 @@
 #include "MockManipulator.h"
 #include "Manipulator.h"
 #include "Solver.h"
+#include "GraphSolver.h"
 
+using std::cout;
+
+//void TST() {
+//	std::vector<TreeObj*> tree;
+//	tree.push_back(new TreeObj(0, 0));  // Узел 0
+//	tree.push_back(new TreeObj(0, 1));  // Узел 1
+//	tree.push_back(new TreeObj(1, 2));  // Узел 2
+//	tree.push_back(new TreeObj(2, 3));  // Узел 3
+//	tree.push_back(new TreeObj(1, 4));  // Узел 4
+//	tree.push_back(new TreeObj(4, 5));  // Узел 5
+//	tree.push_back(new TreeObj(4, 6));  // Узел 6
+//
+//	std::vector<TreeObj*> branch;
+//
+//	// Запускаем для узла 4 (согласно описанию задачи, это начальный узел)
+//	cout << GSolver::BuildPredecessorBranch(tree, 4, branch) << " vs " << 3;
+//
+//	// Проверяем, что в векторе branch будут только узлы 4, 5, и 6
+//	cout << branch[0]->N() << " vs " << 4;
+//	cout << branch[1]->N() << " vs " << 5;
+//	cout << branch[2]->N() << " vs " << 6;
+//}
 
 int main() {
 	std::cout << "started";
+	//TST();
+	return 1;
 	//MockManipulator* mm = new MockManipulator();
 	//Positionable* s = new Positionable(1, 0, 1.5, 2.5, 0);
 	//std::cout << s->X();

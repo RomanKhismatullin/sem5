@@ -1,8 +1,11 @@
+#pragma once
 #include "TreeObj.h"
 #include <vector>
 
-class GraphSolver
+class GSolver
 {
 public:
-	static int BuildPredecessorBranch(std::vector<TreeObj*>* tr, int Nstrt, std::vector<TreeObj*>* brnch);
+    template <typename T>
+    static int BuildPredecessorBranch(std::vector<T*>& tr, int Nstrt, std::vector<T*>& brnch);
+
 };
