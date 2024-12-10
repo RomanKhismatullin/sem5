@@ -30,23 +30,40 @@ using std::cout;
 
 int main() {
 	std::cout << "started";
-	//TST();
-	return 1;
-	//MockManipulator* mm = new MockManipulator();
-	//Positionable* s = new Positionable(1, 0, 1.5, 2.5, 0);
-	//std::cout << s->X();
-	//testSeq();
-	auto mn = new Manipulator();
-	auto el1 = new Element(0, 0, 0, 0, Pi/2, 1);
-	auto el2 = new Element(0, 1, 0, 0, Pi/2, 1);
-	auto el3 = new Element(1, 2, 0, 0, Pi/2, 1);
-	mn->AddElement(el1);
-	mn->AddElement(el2);
-	mn->AddElement(el3);
+	auto mn = new Manipulator();      
+	mn->AddElement(new Element(0, 0, 0, 0, 0, 1));
+	mn->AddElement(new Element(0, 1, 1, 0, Pi/2, 1)); // <_	--	
+	mn->AddElement(new Element(1, 2, 1, 0, Pi/2, 1)); // _> |
+	mn->AddElement(new Element(2, 3, 1, 0, Pi/4, 0.5*std::sqrt(2)));
 	mn->DRW();
-	std::cout << mn->MoveElem(1, 0);
-	std::cout << "l";
+	std::cout << mn->GetElement(3)->drw << " IS: (0, 1)\n";
+	std::cout << mn->GetElement(3)->drw2() << " IS: (-4, -3)\n";
 
+	//std::cout << mn->MoveElem(1, 0) << "\n";
+	//std::cout << mn->MoveElem(0, Pi) << "\n";
+	//std::cout << mn->GetElement(3)->drw2() << " IS: (4, 3)\n";
+	mn->DRW();
+	for (int i = 0; i < 4; i++) {
+		auto e = mn->GetElement(i);
+		cout << e->drw << e->drw2() << e->NPrev() << "-" << e->N() <<"\n";
+	}
+	//mn->GetElement(3)->TweekAlpha(-Pi);
+	std::cout << mn->MoveElem(3, Pi - 1e-4) << "-" << mn->collision << "IS EL: " << mn->Elem_collision << " c" << mn->Const_collision << " m" << mn->Moved_collision << "\n";
+	mn->DRW();
+	cout << "---------\n";
+	for (int i = 0; i < 4; i++) {
+		auto e = mn->GetElement(i);
+		cout << e->drw << e->drw2() << e->NPrev() << "-" << e->N() << "\n";
+	}
+	mn->GetElement(3)->TweekAlpha(-Pi/2);
+	mn->DRW();
+	cout << "---------\n";
+	for (int i = 0; i < 4; i++) {
+		auto e = mn->GetElement(i);
+		cout << e->drw << e->drw2() << e->NPrev() << "-" << e->N() << "\n";
+	}
+
+	//cout << solver::CheckSegmentIntersection(new Point(0, 0), new Point(1, 0), new Point(0, 1), new Point(2, -1));
 }
 
 #include "Sequence.h"

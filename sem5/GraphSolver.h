@@ -6,6 +6,6 @@ class GSolver
 {
 public:
     template <typename T>
-    static int BuildPredecessorBranch(std::vector<T*>& tr, int Nstrt, std::vector<T*>& brnch);
+    static int BuildPredecessorBranch(std::vector<T*>& tr, int Nstrt, std::vector<T*>& brnch, std::vector<T*>& rest);
 
 };

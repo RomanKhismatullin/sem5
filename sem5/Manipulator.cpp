@@ -68,6 +68,28 @@ void Manipulator::DRW()
 	}
 }
 
+void Manipulator::DRW(int N)
+{
+	if (N == 0) {
+		DRW();
+		return;
+	}
+	else
+		for (int i = N; i < el.size(); i++) {
+			double p_drwalpha = el[el[i]->NPrev()]->drwAlpha;
+			Point p_drw = el[el[i]->NPrev()]->drw;
+
+			Point mv = Point(el[i]->X(), el[i]->Y()); //offset
+			Point rot = Point(std::cos(p_drwalpha), std::sin(p_drwalpha));//Берем ориентацию предыдущей точки
+
+
+
+			el[i]->drwAlpha = p_drwalpha + el[i]->Alpha();
+			el[i]->drw = el[el[i]->NPrev()]->drw + rot * mv; //z_0 + rot * z
+		}
+}
+
+
 void Manipulator::DisposeVector(vector<Point*>* v)
 {
 	auto it = v->begin();

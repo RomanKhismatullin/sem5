@@ -15,6 +15,10 @@ int solver::GetIntersect(const Point* L_p1, const  Point* L_p2, const  Point* Ce
     // Calculate circle radius
     double radius = std::abs(onRadius - center);
 
+    if (radius < EPSILON) {
+        return 0;
+    }
+
     // Line equation: p(t) = p1 + t * (p2 - p1)
     Point dir = p2 - p1;
 
@@ -156,6 +160,10 @@ int solver::CheckSegmentIntersection(const Point* p1, const  Point* p2, const  P
     // Направляющие векторы
     Point d1 = *p2 - *p1; // Вектор для первого отрезка
     Point d2 = *g2 - *g1; // Вектор для второго отрезка
+
+    if (std::abs(d1) < ME_EPS || std::abs(d2) < ME_EPS) {
+        return 0;
+    }
 
     // Вычисляем детерминант системы
     double det = d1.real() * d2.imag() - d1.imag() * d2.real();

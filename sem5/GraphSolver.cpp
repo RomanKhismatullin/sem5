@@ -10,7 +10,7 @@
 
 //CHANGED FROM TreeObj to Positionable
 template <typename T>
-int GSolver::BuildPredecessorBranch(std::vector<T*>& tr, int Nstrt, std::vector<T*>& brnch) { 
+int GSolver::BuildPredecessorBranch(std::vector<T*>& tr, int Nstrt, std::vector<T*>& brnch, std::vector<T*>& rest) { 
     // Проверка на валидность Nstrt
     if (Nstrt < 0 || Nstrt >= tr.size()) {
         return 0; // Если индекс некорректен, возвращаем 0
@@ -52,11 +52,18 @@ int GSolver::BuildPredecessorBranch(std::vector<T*>& tr, int Nstrt, std::vector<
         if (obj->COLOR == 2) { // Черные узлы
             brnch.push_back(obj);
         }
+
+        if (obj->COLOR == 1) { // Серык узлы
+            rest.push_back(obj);
+        }
+
+        if (obj->COLOR == 0) //не должно быть
+            throw;
+
     }
 
-    return brnch.size(); // Возвращаем количество черных узлов
 
-    return brnch.size();
+    return brnch.size(); // Возвращаем количество черных узлов
 }
 
 

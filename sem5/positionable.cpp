@@ -23,7 +23,7 @@ complex<double> Positionable::drw2()
 
 void Positionable::TweekAlpha(double alph)
 {
-	_Alpha -= alph;
+	_Alpha += alph;
 }
 
 double Positionable::X() const {

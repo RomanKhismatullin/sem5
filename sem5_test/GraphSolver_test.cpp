@@ -14,9 +14,10 @@ TEST(BuildPredecessorBranchTest, BasicTreeStructure) {
     tree.push_back(new TreeObj(1, 2)); // Узел 2
 
     std::vector<TreeObj*> branch;
+    std::vector<TreeObj*> rst;
 
     // Проверяем, что для Nstrt = 1 программа захватывает узлы 1 и 2
-    EXPECT_EQ(GSolver::BuildPredecessorBranch(tree, 1, branch), 2);
+    EXPECT_EQ(GSolver::BuildPredecessorBranch(tree, 1, branch, rst), 2);
 
     // Проверяем содержимое branch
     ASSERT_EQ(branch.size(), 2);
@@ -35,13 +36,16 @@ TEST(BuildPredecessorBranchTest, SingleNodeTree) {
     std::vector<TreeObj*> tree;
     tree.push_back(new TreeObj(0, 0)); // Узел 0
 
+
+    std::vector<TreeObj*> rst;
     std::vector<TreeObj*> branch;
 
     // Проверяем, что для Nstrt = 0 программа захватывает только узел 0
-    EXPECT_EQ(GSolver::BuildPredecessorBranch(tree, 0, branch), 1);
+    EXPECT_EQ(GSolver::BuildPredecessorBranch(tree, 0, branch, rst), 1);
 
     // Проверяем содержимое branch
     ASSERT_EQ(branch.size(), 1);
+    ASSERT_EQ(rst.size(), 0);
     EXPECT_EQ(branch[0]->N(), 0);
 
     // Освобождение памяти
@@ -65,16 +69,20 @@ TEST(BuildPredecessorBranchTest, MultiLevelTree) {
     tree.push_back(new TreeObj(1, 3)); // Узел 3
     tree.push_back(new TreeObj(1, 4)); // Узел 4
 
+    std::vector<TreeObj*> rst;
     std::vector<TreeObj*> branch;
 
     // Проверяем, что для Nstrt = 1 программа захватывает узлы 1, 3, и 4
-    EXPECT_EQ(GSolver::BuildPredecessorBranch(tree, 1, branch), 3);
+    EXPECT_EQ(GSolver::BuildPredecessorBranch(tree, 1, branch, rst), 3);
 
     // Проверяем содержимое branch
     ASSERT_EQ(branch.size(), 3);
     EXPECT_EQ(branch[0]->N(), 1);
     EXPECT_EQ(branch[1]->N(), 3);
     EXPECT_EQ(branch[2]->N(), 4);
+    ASSERT_EQ(rst.size(), 2);
+
+
 
     // Освобождение памяти
     for (auto obj : tree) {
@@ -93,10 +101,11 @@ TEST(BuildPredecessorBranchTest, RootNodeStart) {
     tree.push_back(new TreeObj(0, 1)); // Узел 1
     tree.push_back(new TreeObj(0, 2)); // Узел 2
 
+    std::vector<TreeObj*> rst;
     std::vector<TreeObj*> branch;
 
     // Проверяем, что для Nstrt = 0 программа захватывает только узел 0
-    EXPECT_EQ(GSolver::BuildPredecessorBranch(tree, 0, branch), 3);
+    EXPECT_EQ(GSolver::BuildPredecessorBranch(tree, 0, branch, rst), 3);
 
     // Проверяем содержимое branch
     ASSERT_EQ(branch.size(), 3);
@@ -124,10 +133,11 @@ TEST(BuildPredecessorBranchTest, RootNodeStart2) {
     tree.push_back(new TreeObj(1, 4));  // Узел 4
 
     std::vector<TreeObj*> branch;
+    std::vector<TreeObj*> rst;
 
     // Ожидаем, что все узлы включены
-    EXPECT_EQ(GSolver::BuildPredecessorBranch(tree, 0, branch), 5);
-    EXPECT_EQ(GSolver::BuildPredecessorBranch(tree, 1, branch), 3);
+    EXPECT_EQ(GSolver::BuildPredecessorBranch(tree, 0, branch, rst), 5);
+    EXPECT_EQ(GSolver::BuildPredecessorBranch(tree, 1, branch, rst), 3);
     EXPECT_EQ(branch.size(), 3);
 
 }
@@ -151,9 +161,10 @@ TEST(BuildPredecessorBranchTest, PositionablesAsLeavs) {
     tree.push_back(new Positionable(1, 4)); // Узел 4
 
     std::vector<Positionable*> branch;
+    std::vector<Positionable*> rst;
     
     // Проверяем, что для Nstrt = 1 программа захватывает узлы 1, 3, и 4
-    EXPECT_EQ(GSolver::BuildPredecessorBranch(tree, 1, branch), 3);
+    EXPECT_EQ(GSolver::BuildPredecessorBranch(tree, 1, branch, rst), 3);
 
     // Проверяем содержимое branch
     ASSERT_EQ(branch.size(), 3);

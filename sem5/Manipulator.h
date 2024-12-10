@@ -3,6 +3,7 @@
 #include <cmath>
 #include "Element.h"
 #include "IManipulator.h"
+#include "GraphSolver.h"
 using std::vector;
 using std::min;
 using std::fabs;
@@ -39,13 +40,26 @@ public:
 	/// <returns>Returns -1, on no element; </returns>
 	int SetElem(int N, double fi) override;
 
-
+	/// <summary>
+	/// Отрисовка
+	/// </summary>
 	void DRW();
+
+	/// <summary>
+	/// Отрисовка с [N, ...]
+	/// </summary>
+	/// <param name="N">Первый перерисуемый</param>
+	void DRW(int N);
+
+
+	double collision = 0;
+	double Const_collision = 0;
+	double Moved_collision = 0;
+	double Elem_collision = 0;
 
 private:
 	vector<Positionable*> el;//приватен, ссылки храняться где-то снаружи
 	void DisposeVector(vector<Point*>* v);
 	int SmallRot(const int N, const double fi); //повороты на углы меньше Pi
-	double collision = 0;
-	double N_collision = 0;
+
 };
