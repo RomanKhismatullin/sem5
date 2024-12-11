@@ -10,6 +10,12 @@ Positionable::Positionable(int N_prev, int N, double x, double y, double Alpha) 
 }
 
 
+Positionable* Positionable::Clone()
+{
+	return new Positionable(*this);
+}
+
+
 
 double Positionable::L() const
 {

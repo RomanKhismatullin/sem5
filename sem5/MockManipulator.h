@@ -1,6 +1,12 @@
 #pragma once
 #include "IManipulator.h"
 //#include <vector>
+
+
+
+/// <summary>
+/// Класс для мок-тестов IAction
+/// </summary>
 class MockManipulator final : public IManipulator {
 public:
 	bool* DISPOSEDFLAG = nullptr;

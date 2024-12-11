@@ -11,4 +11,9 @@ int ActionMove::DoWork(IManipulator* mn) {
 	if (ss == nullptr)
 		return 1;
 	return mn->MoveElem(N, Fi);
-};
+}
+IAction* ActionMove::Clone()
+{
+	return new ActionMove(*this);
+}
+;

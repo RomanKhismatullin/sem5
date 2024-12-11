@@ -145,6 +145,7 @@ TEST(BuildPredecessorBranchTest, RootNodeStart2) {
 
 
 #include "../sem5/Camera.h"
+#include "../sem5/Element.h"
 
 TEST(BuildPredecessorBranchTest, PositionablesAsLeavs) {
     // Дерево:
@@ -154,11 +155,11 @@ TEST(BuildPredecessorBranchTest, PositionablesAsLeavs) {
     //     / \
     //    3   4
     std::vector<Positionable*> tree;
-    tree.push_back(new Positionable(0, 0)); // Узел 0
+    tree.push_back(new Element(0, 0)); // Узел 0
     tree.push_back(new Camera(0, 1)); // Узел 1
-    tree.push_back(new Positionable(0, 2)); // Узел 2
-    tree.push_back(new Positionable(1, 3)); // Узел 3
-    tree.push_back(new Positionable(1, 4)); // Узел 4
+    tree.push_back(new Element(0, 2)); // Узел 2
+    tree.push_back(new Element(1, 3)); // Узел 3
+    tree.push_back(new Element(1, 4)); // Узел 4
 
     std::vector<Positionable*> branch;
     std::vector<Positionable*> rst;

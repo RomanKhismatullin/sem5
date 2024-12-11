@@ -43,6 +43,9 @@
     <Filter Include="Positionable\cpp">
       <UniqueIdentifier>{28425713-af5b-4c7e-aa16-f295c53cad5d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Action\Sequence">
+      <UniqueIdentifier>{b0d35166-56e3-4574-992e-2241a4c29a77}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="sem5.cpp">
@@ -75,9 +78,6 @@
     <ClCompile Include="Positionable.cpp">
       <Filter>Positionable\cpp</Filter>
     </ClCompile>
-    <ClCompile Include="Sequence.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="Camera.cpp">
       <Filter>Positionable\cpp</Filter>
     </ClCompile>
@@ -99,11 +99,11 @@
     <ClCompile Include="GraphSolver.cpp">
       <Filter>Manipulator\cpp</Filter>
     </ClCompile>
+    <ClCompile Include="Sequence.cpp">
+      <Filter>Action\Sequence</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Sequence.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="ActionGrip.h">
       <Filter>Action\h</Filter>
     </ClInclude>
@@ -151,6 +151,9 @@
     </ClInclude>
     <ClInclude Include="GraphSolver.h">
       <Filter>Manipulator\h</Filter>
+    </ClInclude>
+    <ClInclude Include="Sequence.h">
+      <Filter>Action\Sequence</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

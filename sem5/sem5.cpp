@@ -56,7 +56,7 @@ int main() {
 	 
 	std::cout << mn->GetElement(0)->Alpha() << " -- 0alphA\n";
 
-	msq->Add(new ActionMove(0, Pi));
+	msq->Add(new ActionMove(0, Pi));  
 	msq->Next();
 	std::cout << mn->GetElement(0)->Alpha() << " -- 1alphA\n";
 

@@ -6,6 +6,10 @@ using std::vector;
 //std::vector<int>::iterator
 class Sequence final {
 public:
+	Sequence(const Sequence& sq) = delete; // запещаем!!!
+
+	Sequence* Clone(const Sequence* sq, IManipulator* mn);
+
 	Sequence(IManipulator* mn);
 	/// <summary>
 	/// Регистрация здесь. Удаление - автоматическое

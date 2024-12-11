@@ -8,6 +8,7 @@ public:
 	/// <param name="N">0 - для успеха (default), кроме пусого MockManipulator
 	/// иначе - провал</param>
 	MockAction(int N = 0, bool* DispF = nullptr);
+	IAction* Clone() override;
 	int N = 0;
 	bool* DISPOSEFLAG = nullptr;
 	
@@ -18,4 +19,5 @@ public:
 	int DoWork(IManipulator* mn) override;
 
 	~MockAction() override;
+
 };

@@ -14,4 +14,9 @@ int ActionGrip::DoWork(IManipulator* mn) {
 	ss->SetAlpha(this->Alpha);
 	ss->SetOpeningAlpha(this->OpeningAlpha);
 	return 0;
-};
+}
+IAction* ActionGrip::Clone()
+{
+	return new ActionGrip(*this);
+}
+;

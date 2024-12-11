@@ -11,4 +11,8 @@ int ActionSet::DoWork(IManipulator* mn) {
 	if (ss == nullptr)
 		return 1;
 	return mn->SetElem(N, Fi);
+}
+IAction* ActionSet::Clone()
+{
+	return new ActionSet(*this);
 };

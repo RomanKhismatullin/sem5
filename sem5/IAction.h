@@ -17,4 +17,6 @@ public:
 	/// Деструктор
 	/// </summary>
 	virtual ~IAction() = default;
+
+	virtual IAction* Clone() = 0;
 };

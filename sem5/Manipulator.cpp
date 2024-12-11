@@ -5,6 +5,47 @@ Manipulator::Manipulator()
 
 }
 
+#define CPY(A) A=m.A
+
+Manipulator::Manipulator(const Manipulator& m)
+{
+	CPY(collision);
+	CPY(Const_collision);
+	CPY(Moved_collision);
+	CPY(Elem_collision);
+	el.resize(m.el.size());
+	for (auto e : m.el) {
+		el.push_back(e->Clone());
+	}
+}
+
+Manipulator& Manipulator::operator=(const Manipulator& m)
+{
+
+	if (&m == this)
+	{
+		return *this;
+	}
+
+	this->~Manipulator();
+
+	CPY(collision);
+	CPY(Const_collision);
+	CPY(Moved_collision);
+	CPY(Elem_collision);
+	el.resize(m.el.size());
+	for (auto e : m.el) {
+		el.push_back(e->Clone());
+	}
+}
+
+Manipulator::~Manipulator()
+{
+	for (auto e : el)
+		delete e;
+	el.clear();
+}
+
 int Manipulator::AddElement(Positionable* pos)
 {
 	if (pos->N() != el.size())
@@ -33,6 +74,11 @@ Positionable* Manipulator::GetElement(int N)
 	if (el.size() <= N || N < 0)
 		return nullptr;
 	return el[N];
+}
+
+int Manipulator::GetElementsSize() const
+{
+	return (int)el.size();
 }
 
 int Manipulator::SetElem(int N, double fi)
@@ -89,13 +135,4 @@ void Manipulator::DRW(int N)
 		}
 }
 
-
-void Manipulator::DisposeVector(vector<Point*>* v)
-{
-	auto it = v->begin();
-	while (it != v->end()) {
-		delete* it;
-	}
-	delete v;
-}
 

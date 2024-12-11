@@ -18,7 +18,9 @@ public:
 	/// <param name="Alpha">Угол относительно оси Ox предыдущего звена</param>
 	Positionable(int NPrev, int N, double x = 0, double y = 0, double Alpha = 0);
 	
+	virtual ~Positionable() = default;
 
+	virtual Positionable* Clone();
 	
 	/// <returns>0 for success, 1 failure</returns>
 	virtual int SetAlpha(double A);
@@ -26,10 +28,6 @@ public:
 	virtual int MoveAlpha(double A);
 
 	virtual int CanMoveAlpha(double A);
-	
-	virtual ~Positionable() = default;
-	
-	virtual Positionable* Clone() = 0;
 	
 	/// <summary>
 	/// Координата X в с/к предыдущего звена

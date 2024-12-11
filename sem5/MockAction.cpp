@@ -6,6 +6,11 @@ MockAction::MockAction(int N, bool* DispF)
 	this->N = N;
 }
 
+IAction* MockAction::Clone()
+{
+	return new MockAction(*this);
+}
+
 int MockAction::DoWork(IManipulator* mn)
 {
 	//return 1;
@@ -27,3 +32,4 @@ MockAction::~MockAction()
 		*DISPOSEFLAG = true;
 	}
 }
+

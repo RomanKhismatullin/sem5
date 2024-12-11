@@ -1,6 +1,17 @@
 #include "Sequence.h"
 
 
+Sequence* Sequence::Clone(const Sequence* sq, IManipulator* mn)
+{
+	auto t = new Sequence(mn);
+	t->actionCount = actionCount;
+	t->actions.resize(actions.size());
+	for (auto e : actions) {
+		t->actions.push_back(e->Clone());
+	}
+	return t;
+}
+
 Sequence::Sequence(IManipulator* mn) {
 	manipulator = mn;
 }

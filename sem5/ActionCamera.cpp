@@ -16,3 +16,8 @@ int ActionCamera::DoWork(IManipulator* mn) {
 	ss->SetAlphaView(AlphaView);
 	return 0;
 }
+
+IAction* ActionCamera::Clone()
+{
+	return new ActionCamera(*this);
+}

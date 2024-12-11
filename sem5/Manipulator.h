@@ -11,10 +11,26 @@ using std::fabs;
 #include <complex>
 #define Point std::complex<double>
 
+
 class Manipulator final : public IManipulator {
 public:
 
+#pragma region construction - mem
+
+
 	Manipulator();
+
+	Manipulator(const Manipulator& m);
+
+	Manipulator& operator=(const Manipulator& m);
+
+
+	~Manipulator() override;
+
+#pragma endregion
+
+
+
 
 
 	/// <summary>
@@ -24,7 +40,7 @@ public:
 	/// <returns>0 - success, 1 - on failure, -2 - failure arg>pi*0.99 err</returns>
 	int AddElement(Positionable* pos) override;
 	Positionable* GetElement(int N) override;
-
+	int GetElementsSize() const;
 
 
 	/// <summary>
@@ -39,12 +55,10 @@ public:
 	/// </summary>
 	/// <returns>Returns -1, on no element; </returns>
 	int SetElem(int N, double fi) override;
-
 	/// <summary>
 	/// Отрисовка
 	/// </summary>
 	void DRW();
-
 	/// <summary>
 	/// Отрисовка с [N, ...]
 	/// </summary>
@@ -56,10 +70,8 @@ public:
 	double Const_collision = 0;
 	double Moved_collision = 0;
 	double Elem_collision = 0;
-
 private:
 	vector<Positionable*> el;//приватен, ссылки храняться где-то снаружи
-	void DisposeVector(vector<Point*>* v);
 	int SmallRot(const int N, const double fi); //повороты на углы меньше Pi
 
 };

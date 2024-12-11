@@ -2,8 +2,9 @@
 #include "Element.h"
 #include "Positionable.h"
 #include <vector>
+
 /// <summary>
-/// Класс-интерфейс манпулятора
+/// Класс-интерфейс манипулятора, в нем собран функционал, требуемый от манипулятора, для проигрывания действий
 /// </summary>
 class IManipulator {
 public:
