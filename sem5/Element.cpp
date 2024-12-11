@@ -9,3 +9,8 @@ double Element::L() const
 {
 	return _L;
 }
+
+Positionable* Element::Clone()
+{
+	return new Element(_N, _NPrev, _X, _Y, _Alpha, _L);
+}

@@ -8,6 +8,7 @@ public:
 
 	double AlphaOpening() const;
 
+	Positionable* Clone() override;
 	
 private:
 	double _OpeningAlpha;

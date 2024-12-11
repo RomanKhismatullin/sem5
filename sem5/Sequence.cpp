@@ -44,7 +44,7 @@ Sequence::~Sequence() {
 	for (auto it_ = actions.begin(); it_ != actions.end(); ++it_) {
 		delete *it_;
 	}
-	delete manipulator;
+	//delete manipulator; //OR SHOULD WE?
 }
 
 int Sequence::ActionsLeft() const

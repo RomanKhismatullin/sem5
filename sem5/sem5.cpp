@@ -1,11 +1,15 @@
 ﻿#include <iostream>
 #include "Positionable.h"
-#include "MockManipulator.h"
+//#include "MockManipulator.h"
 #include "Manipulator.h"
 #include "Solver.h"
 #include "GraphSolver.h"
 
-using std::cout;
+#include "Sequence.h"
+
+#include "ActionMove.h"
+#include <cassert>
+//using std::cout;
 
 //void TST() {
 //	std::vector<TreeObj*> tree;
@@ -30,7 +34,13 @@ using std::cout;
 
 int main() {
 	std::cout << "started";
+	/*	auto mn = new MockManipulator();
+	auto el = new Element(0, 1);
+	mn->AddElement(el);
+	auto sq = new Sequence(mn);*/
+	
 	auto mn = new Manipulator();      
+
 	mn->AddElement(new Element(0, 0, 0, 0, 0, 1));
 	mn->AddElement(new Element(0, 1, 1, 0, Pi/2, 1)); // <_	--	
 	mn->AddElement(new Element(1, 2, 1, 0, Pi/2, 1)); // _> |
@@ -39,36 +49,51 @@ int main() {
 	std::cout << mn->GetElement(3)->drw << " IS: (0, 1)\n";
 	std::cout << mn->GetElement(3)->drw2() << " IS: (-4, -3)\n";
 
+	std::cout << "\nSeq:\n";
+
+	//auto am = new ActionMove(0, 3);
+	auto msq = new Sequence((IManipulator*)mn);
+	 
+	std::cout << mn->GetElement(0)->Alpha() << " -- 0alphA\n";
+
+	msq->Add(new ActionMove(0, Pi));
+	msq->Next();
+	std::cout << mn->GetElement(0)->Alpha() << " -- 1alphA\n";
+
+	msq->Add(new ActionMove(0, Pi));
+	msq->Next();
+	std::cout << mn->GetElement(0)->Alpha() << " -- 2alphA\n\n";
+
+
+
+	//Разные версии погрммы
 	//std::cout << mn->MoveElem(1, 0) << "\n";
 	//std::cout << mn->MoveElem(0, Pi) << "\n";
 	//std::cout << mn->GetElement(3)->drw2() << " IS: (4, 3)\n";
 	mn->DRW();
 	for (int i = 0; i < 4; i++) {
 		auto e = mn->GetElement(i);
-		cout << e->drw << e->drw2() << e->NPrev() << "-" << e->N() <<"\n";
+		std::cout << e->drw << e->drw2() << e->NPrev() << "-" << e->N() <<"\n";
 	}
 	//mn->GetElement(3)->TweekAlpha(-Pi);
 	std::cout << mn->MoveElem(3, Pi - 1e-4) << "-" << mn->collision << "IS EL: " << mn->Elem_collision << " c" << mn->Const_collision << " m" << mn->Moved_collision << "\n";
 	mn->DRW();
-	cout << "---------\n";
+	std::cout << "---------\n";
 	for (int i = 0; i < 4; i++) {
 		auto e = mn->GetElement(i);
-		cout << e->drw << e->drw2() << e->NPrev() << "-" << e->N() << "\n";
+		std::cout << e->drw << e->drw2() << e->NPrev() << "-" << e->N() << "\n";
 	}
 	mn->GetElement(3)->TweekAlpha(-Pi/2);
 	mn->DRW();
-	cout << "---------\n";
+	std::cout << "---------\n";
 	for (int i = 0; i < 4; i++) {
 		auto e = mn->GetElement(i);
-		cout << e->drw << e->drw2() << e->NPrev() << "-" << e->N() << "\n";
+		std::cout << e->drw << e->drw2() << e->NPrev() << "-" << e->N() << "\n";
 	}
 
 	//cout << solver::CheckSegmentIntersection(new Point(0, 0), new Point(1, 0), new Point(0, 1), new Point(2, -1));
 }
 
-#include "Sequence.h"
-#include "ActionMove.h"
-#include <cassert>
 /*void testSeq() {
 	auto mn = new MockManipulator();
 	auto el = new Element(0, 1);

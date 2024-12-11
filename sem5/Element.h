@@ -15,6 +15,8 @@ public:
 
 	double L() const override;
 
+	Positionable* Clone() override;
+
 protected:
 	double _L;
 };

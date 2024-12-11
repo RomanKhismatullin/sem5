@@ -11,3 +11,8 @@ double Camera::AlphaView() const {
 void Camera::SetAlphaView(double A) {
 	_AlphaView = A;
 }
+
+Positionable* Camera::Clone()
+{
+	return new Camera(_NPrev, _N, _X, _Y, _Alpha, _AlphaView);
+}

@@ -8,6 +8,11 @@ double Grip::AlphaOpening() const {
 	return _OpeningAlpha;
 }
 
+Positionable* Grip::Clone()
+{
+	return new Grip(_NPrev, _N, _X, _Y, _Alpha, _OpeningAlpha);
+}
+
 void Grip::SetOpeningAlpha(double fi) {
 	_OpeningAlpha = fi;
 }

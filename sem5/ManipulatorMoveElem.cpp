@@ -10,7 +10,6 @@
 
 int Manipulator::MoveElem(int N, double fi)
 {
-
 	if (fi == 0)
 		return 0;
 
